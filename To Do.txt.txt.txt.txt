@@ -1,0 +1,27 @@
+TODO: penguin game
+
+Gameplay: 
+Storpingvinen sitter i slutet av banan, placera u torn för att se till att han inte blir dödad.
+
+Spel
+bana 1, bara test                   (simon)
+ballon som kör enligt bana ()       (simon/elliot)
+meny (homemeny)                     (pontus)
+Rita gubben (pingvinen)             (viktor)
+rita piratskepp istället för ballon (elliot)
+Skjuta projectiles                  (oscar)
+flera towers                        ()
+click and click                     (Arvid)
+seeking för torna                   ()
+pathfinding?                        ()
+upgrades
+speeeeed
+loot av död pirater
+kunna dö
+Stortorn kunna sprängas
+Unitys particle system
+game over
+game win 
+virus
+crypto miner
+herobrine
