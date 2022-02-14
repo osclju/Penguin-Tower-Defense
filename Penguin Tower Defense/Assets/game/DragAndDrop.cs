@@ -10,6 +10,7 @@ public class DragAndDrop : MonoBehaviour
 
     public void OnMouseDown()
     {
+        
         if (gameObject.GetComponent<DragAndDrop>().enabled != false)
         {
             Instantiate(tower, transform.position, Quaternion.identity);
@@ -21,12 +22,12 @@ public class DragAndDrop : MonoBehaviour
     {
         isDragging = false;
         gameObject.GetComponent<DragAndDrop>().enabled = false;
-
-
+        gameObject.GetComponent<TowerSeeking>().enabled = true;
     }
 
     void Update()
     {
+        
         if (isDragging)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
