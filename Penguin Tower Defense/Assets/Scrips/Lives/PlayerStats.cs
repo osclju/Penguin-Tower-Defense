@@ -13,7 +13,6 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         Lives = startLives;
-        Debug.Log(Lives);
     }
 
     
