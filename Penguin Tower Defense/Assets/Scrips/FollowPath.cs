@@ -23,9 +23,13 @@ public class FollowPath : MonoBehaviour
             ded = true;
         }
         else {
-        gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, a[currentpos].position, speed * Time.deltaTime);
+            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, a[currentpos].position, speed * Time.deltaTime);
+            rotera();
         }
        
         
+    }
+    void rotera() {
+
     }
 }
