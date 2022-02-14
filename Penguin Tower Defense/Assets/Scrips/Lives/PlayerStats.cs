@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-
-    public static int Lives;
-    public int startLives = 20;
-
+    [SerializeField] private int m_PlayerLives;
+    [SerializeField] private int startLives = 20; 
 
 
     void Start()
     {
-        Lives = startLives;
+        m_PlayerLives = startLives;
     }
 
+    public int PlayerLives
+    {
+        get { return m_PlayerLives; }
+        set { m_PlayerLives = value; }
+    }
     
 
 }
