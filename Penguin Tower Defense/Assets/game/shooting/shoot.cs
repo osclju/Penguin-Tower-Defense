@@ -5,17 +5,20 @@ using UnityEngine;
 public class shoot : MonoBehaviour
 {
     // Start is called before the first frame update
-    private GameObject fp; 
+    private Transform fp; 
     [SerializeField]
-    private Rigidbody2D bulletPrefab;
-    private Rigidbody2D pew;
+    private GameObject bulletPrefab;
+    private GameObject clone;
+    private Rigidbody2D rb;
 
     private Vector3 pos;
     private Vector3 angle;
 
+    private bool gunexpl;
+
     void Start()
     {
-        fp = GameObject.Find("firePoint");
+        fp = transform.Find("firePoint");
     }
 
     // Update is called once per frame
@@ -24,18 +27,29 @@ public class shoot : MonoBehaviour
         pos = fp.transform.position;
         angle = fp.transform.eulerAngles;
         angle += new Vector3(0, 0, 90);
-        Debug.Log(angle);
-        if (Input.GetKeyDown("space")) {
-            shooting();
+        if (Input.GetKeyDown("space"))
+        {
+            gunexpl = true;
         }
+    }
+    private void FixedUpdate()
+    {
+        if (gunexpl != true) return;
+        
+        gunexpl = false;
+        shooting();
     }
     private void shooting() {
         Debug.Log("pew");
-        pew = Instantiate(bulletPrefab, pos, Quaternion.Euler(angle));
-        pew.AddForce(new Vector2(20, 0));
-        kill();
-    }
-    private void kill() { 
-    
+        clone = Instantiate(bulletPrefab, pos, Quaternion.Euler(angle));
+        rb = clone.GetComponent<Rigidbody2D>();                                 // fungerar typ yeeeeee
+        rb.AddForce(angle + new Vector3(2000, 0), ForceMode2D.Impulse);
+        
+        
+        /*
+        pew = GetComponent<Rigidbody2D>();
+        pew.AddForce(new Vector2(200,200));
+        pew.transform.
+        */
     }
 }
