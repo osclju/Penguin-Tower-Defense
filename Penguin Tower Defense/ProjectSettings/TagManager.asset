@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - GameMaster
+  - Path
   layers:
   - Default
   - TransparentFX
