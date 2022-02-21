@@ -5,13 +5,12 @@ using UnityEngine;
 public class Storpingvin : MonoBehaviour
 {
 
-    PlayerStats stats;
+   
 
     // Start is called before the first frame update
     void Start()
     {
-        stats = GetComponent<PlayerStats>();
-        stats.PlayerLives = 20;
+        PlayerStats.PlayerLives = 20;
     }
 
     // Update is called once per frame
@@ -29,7 +28,7 @@ public class Storpingvin : MonoBehaviour
             //PlayerStats.PlayerLives--;
             //TakeDamage(collision.Damage);
             Destroy(collision.gameObject);                          //Destroys the enemy
-            if (stats.PlayerLives <= 0)                       //If the player's lives are equal to or less than zero.
+            if (PlayerStats.PlayerLives <= 0)                       //If the player's lives are equal to or less than zero.
             {
                 Debug.Log("DEAD");
                 GameOver gameOver = FindObjectOfType<GameOver>();   //Finds the GameOver class in GameMaster
@@ -40,9 +39,9 @@ public class Storpingvin : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        if (stats.PlayerLives != 0)
+        if (PlayerStats.PlayerLives != 0)
         {
-            stats.PlayerLives = stats.PlayerLives - amount;
+            PlayerStats.PlayerLives = PlayerStats.PlayerLives - amount;
         } else
         {
             Debug.Log("Död");
