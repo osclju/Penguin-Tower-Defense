@@ -8,9 +8,18 @@ using UnityEngine;
 
 public class TowerSeeking : MonoBehaviour
 {
+    private void Start()
+    {
+        
+    }
+
 
     void FixedUpdate()
     {
+
+       
+
+
         int RaysToShoot = 60;
         int RayDistance = 2;
         float angle = 0;
