@@ -11,5 +11,6 @@ public class collision : MonoBehaviour
     {
         Debug.Log("träff");
         Destroy(gameObject);
+
     }
 }

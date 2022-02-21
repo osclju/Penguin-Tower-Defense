@@ -33,7 +33,6 @@ public class shoot : MonoBehaviour
         }
     }
     private void shooting() {
-        Debug.Log("pew");
         clone = Instantiate(bulletPrefab, pos, Quaternion.Euler(angle));
         pew = clone.GetComponent<Rigidbody2D>();
         pew.AddRelativeForce(new Vector3(0, -speed), ForceMode2D.Force);
