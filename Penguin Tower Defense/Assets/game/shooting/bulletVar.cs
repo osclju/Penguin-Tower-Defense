@@ -5,12 +5,8 @@ using UnityEngine;
 public class bulletVar : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] 
-    private int speed;
-    [SerializeField]
-    private int dmg;
-    [SerializeField]
-    private int firerate;
-    [SerializeField]
-    private int affect;
+    public int speed;
+    public int dmg;
+    public int firerate;
+    public int affect;
 }
