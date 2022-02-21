@@ -7,11 +7,15 @@ public class shoot : MonoBehaviour
     // Start is called before the first frame update
     private GameObject fp; 
     [SerializeField]
-    private Rigidbody2D bulletPrefab;
+    private GameObject bulletPrefab;
+    private GameObject clone;
     private Rigidbody2D pew;
 
     private Vector3 pos;
     private Vector3 angle;
+    [SerializeField]
+    private float speed = 2000f;
+
 
     void Start()
     {
@@ -21,18 +25,19 @@ public class shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pos = fp.transform.position;
-        angle = fp.transform.eulerAngles;
-        angle += new Vector3(0, 0, 90);
-        Debug.Log(angle);
         if (Input.GetKeyDown("space")) {
+            pos = fp.transform.position;
+            angle = fp.transform.eulerAngles;
+            angle += new Vector3(0, 0, 90);
             shooting();
         }
     }
     private void shooting() {
         Debug.Log("pew");
-        pew = Instantiate(bulletPrefab, pos, Quaternion.Euler(angle));
-        pew.AddForce(new Vector2(20, 0));
+        clone = Instantiate(bulletPrefab, pos, Quaternion.Euler(angle));
+        pew = clone.GetComponent<Rigidbody2D>();
+        pew.AddRelativeForce(new Vector3(0, -speed), ForceMode2D.Force);
+        
         kill();
     }
     private void kill() { 
