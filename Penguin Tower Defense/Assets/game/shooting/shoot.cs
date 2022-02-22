@@ -29,7 +29,6 @@ public class shoot : MonoBehaviour
         b_speed = bulletPrefab.GetComponent<bulletVar>().speed;
         b_firerate = bulletPrefab.GetComponent<bulletVar>().firerate;
         b_affect = bulletPrefab.GetComponent<bulletVar>().affect;
-
     }
 
     // Update is called once per frame
@@ -44,12 +43,11 @@ public class shoot : MonoBehaviour
     }
     private void shooting() {
        
-        
         clone = Instantiate(bulletPrefab, pos, Quaternion.Euler(angle));
         pew = clone.GetComponent<Rigidbody2D>();
         pew.AddRelativeForce(new Vector3(0, -b_speed), ForceMode2D.Force);
         
-        kill();
+        Invoke("kill", 2f);
     }
 
     // firerate
@@ -62,7 +60,7 @@ public class shoot : MonoBehaviour
 
     // kunna skjuta 
 
-    private void kill() { 
-    
+    private void kill() {
+        Destroy(clone);
     }
 }
