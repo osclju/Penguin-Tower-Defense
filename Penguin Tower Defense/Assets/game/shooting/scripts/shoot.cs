@@ -6,7 +6,7 @@ public class shoot : MonoBehaviour
 {    
     // skjuta prefabsen
     private Transform fp; 
-    [SerializeField]
+    [SerializeField]  
     private GameObject bulletPrefab;
     private GameObject clone;
     private Rigidbody2D pew;
@@ -25,6 +25,7 @@ public class shoot : MonoBehaviour
     {
         fp = transform.Find("firePoint");
         //hämtar alla variabler från bullet
+        
         b_dmg = bulletPrefab.GetComponent<bulletVar>().dmg;
         b_speed = bulletPrefab.GetComponent<bulletVar>().speed;
         b_firerate = bulletPrefab.GetComponent<bulletVar>().firerate;
