@@ -23,10 +23,9 @@ public class Storpingvin : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")                    //If the gameobject that collides with the Storpingving has the "Enemy" tag
         {
-
             Debug.Log("has collide");
             //PlayerStats.PlayerLives--;
-            //TakeDamage(collision.Damage);
+            TakeDamage();
             Destroy(collision.gameObject);                          //Destroys the enemy
             if (PlayerStats.PlayerLives <= 0)                       //If the player's lives are equal to or less than zero.
             {
@@ -42,6 +41,7 @@ public class Storpingvin : MonoBehaviour
         if (PlayerStats.PlayerLives != 0)
         {
             PlayerStats.PlayerLives = PlayerStats.PlayerLives - amount;
+            Debug.Log(amount);
         } else
         {
             Debug.Log("Död");

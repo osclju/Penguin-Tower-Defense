@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7972242190476887339}
   - component: {fileID: 7972242190476887338}
   - component: {fileID: 7972242190476887341}
-  - component: {fileID: 5946134618937289333}
+  - component: {fileID: 3700139682917257594}
   m_Layer: 0
   m_Name: Pirat 1
   m_TagString: Enemy
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: []
---- !u!114 &5946134618937289333
+--- !u!114 &3700139682917257594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
