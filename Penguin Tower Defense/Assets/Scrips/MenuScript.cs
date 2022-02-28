@@ -21,10 +21,6 @@ public class MenuScript : MonoBehaviour
     {
         amountOfLevles = SceneManager.sceneCountInBuildSettings;
         Debug.Log(amountOfLevles);
-        if (amountOfLevles == 1) {
-            //myIMGcomponent1.gameObject.SetActive(false);
-            //myIMGcomponent3.gameObject.SetActive(false);
-        }
         myIMGcomponent1.sprite = newImage;
     }
 
