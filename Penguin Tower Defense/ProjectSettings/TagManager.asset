@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Path
+  - firePoint
+  - Gun
+  - pirate
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - pirates
   - 
   - 
   - 

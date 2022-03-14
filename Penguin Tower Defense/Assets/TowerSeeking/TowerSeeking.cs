@@ -8,9 +8,18 @@ using UnityEngine;
 
 public class TowerSeeking : MonoBehaviour
 {
+    private void Start()
+    {
+        
+    }
+
 
     void FixedUpdate()
     {
+
+       
+
+
         int RaysToShoot = 60;
         int RayDistance = 2;
         float angle = 0;
@@ -25,7 +34,7 @@ public class TowerSeeking : MonoBehaviour
 
             string name = colliders[0].name;
             
-            Debug.Log(name);
+            //Debug.Log(name);
             for (int i = 0; i < RaysToShoot; i++)
             {
                 float x = Mathf.Sin(angle);
