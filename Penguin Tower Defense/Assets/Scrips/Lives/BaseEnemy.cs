@@ -6,5 +6,5 @@ public class BaseEnemy : MonoBehaviour
 {
     protected int damage;
     protected int health;
-    protected int speed;
+    protected float speed;
 }

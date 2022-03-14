@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowPath : MonoBehaviour
 {
     int currentpos = 1;
-    float speed = 2f;
+    float speed = 10f;
     bool ded = false;
     [SerializeField]Transform[] a;
     GameObject temp;
@@ -19,8 +19,11 @@ public class FollowPath : MonoBehaviour
             currentpos++;
         }
         if (currentpos == a.Length) {
-            Debug.Log("DÖD");
+            EnemyController ec = gameObject.GetComponent<EnemyController>();
+            ec.DealDamage();
+            Debug.Log("EnemyIsDead");
             ded = true;
+            Destroy(gameObject);
         }
         else {
             gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, a[currentpos].position, speed * Time.deltaTime);
@@ -32,4 +35,5 @@ public class FollowPath : MonoBehaviour
     void rotera() {
 
     }
+    
 }

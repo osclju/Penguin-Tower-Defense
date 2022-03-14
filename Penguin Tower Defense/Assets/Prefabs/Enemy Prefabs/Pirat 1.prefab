@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7972242190476887339}
   - component: {fileID: 7972242190476887338}
   - component: {fileID: 7972242190476887341}
-  - component: {fileID: 3700139682917257594}
+  - component: {fileID: 8382782652876274086}
+  - component: {fileID: 8576877574067529017}
   m_Layer: 0
   m_Name: Pirat 1
   m_TagString: Enemy
@@ -97,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: []
---- !u!114 &3700139682917257594
+--- !u!114 &8382782652876274086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,6 +107,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7972242190476887340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182b623fffdd51f48ae7357d5019dd8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cd59d63000e26f458c56d53f586c66b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8576877574067529017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7972242190476887340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f7fe55c6c164447b4b4a724e957f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
