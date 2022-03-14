@@ -15,7 +15,7 @@ public class FollowPath : MonoBehaviour
     }
     void Update()
     {
-        if (ded == false&&gameObject.transform.position == a[currentpos].position) {
+        if (ded == false&&transform.position == a[currentpos].position) {
             currentpos++;
         }
         if (currentpos == a.Length) {
@@ -23,13 +23,20 @@ public class FollowPath : MonoBehaviour
             ded = true;
         }
         else {
-            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, a[currentpos].position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, a[currentpos].position, speed * Time.deltaTime);
             rotera();
         }
        
         
     }
     void rotera() {
+        float dy = a[currentpos].position.y - transform.position.y;
+        float dx = a[currentpos].position.x - transform.position.x;
+        Vector2 dir = new Vector2(dx, dy);
+        // The step size is equal to speed times frame time.
+        float singleStep = 500 * Time.deltaTime;
 
+        Quaternion targetrot = Quaternion.LookRotation(Vector3.forward, dir);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetrot, singleStep);
     }
 }
