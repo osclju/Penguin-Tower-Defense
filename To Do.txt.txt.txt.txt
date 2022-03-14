@@ -4,16 +4,16 @@ Gameplay:
 Storpingvinen sitter i slutet av banan, placera u torn för att se till att han inte blir dödad.
 
 Spel
-bana 1, bara test                   (simon)
-ballon som kör enligt bana ()       (simon/elliot)
-meny (homemeny)                     (pontus)
-Rita gubben (pingvinen)             (viktor)
-rita piratskepp istället för ballon (elliot)
-Skjuta projectiles                  (oscar)
-flera towers                        ()
-click and click                     (Arvid)
-seeking för torna                   ()
-pathfinding?                        ()
+bana 1, bara test                   (simon)         Done
+ballon som kör enligt bana ()       (simon/elliot)  Done
+meny (homemeny)                     (pontus)        Done ()options kvar
+Rita gubben (pingvinen)             (viktor)        Done
+rita piratskepp istället för ballon (elliot)        Done
+Skjuta projectiles                  (oscar)         Fungerar för Demo 
+flera towers                        ()              
+drag an drop                        (Arvid)         Done
+seeking för torna                   (Arvid & Albin) Hållerpå med ett demo, shooting, pathfinding, tower seeking, (FUNKAR EJ FÖR TILLFÄLLET)
+pathfinding?                        (Simon)         DONE
 upgrades
 speeeeed
 loot av död pirater
