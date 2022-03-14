@@ -34,7 +34,7 @@ public class TowerSeeking : MonoBehaviour
 
             string name = colliders[0].name;
             
-            Debug.Log(name);
+            //Debug.Log(name);
             for (int i = 0; i < RaysToShoot; i++)
             {
                 float x = Mathf.Sin(angle);
