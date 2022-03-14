@@ -77,6 +77,33 @@ public class MenuScript : MonoBehaviour
         
         Debug.Log(selectedLevel);
     }
+
+    public void SelectLevel_picture_left_change()
+    {
+        int tmpselectedLevel;
+        if (selectedLevel < amountOfLevles)
+        {
+            tmpselectedLevel = selectedLevel + 1;
+        }
+        else
+        {
+            tmpselectedLevel = 1;
+        }
+
+        if (tmpselectedLevel > 1)
+        {
+            //Picture Switch                                  selected = 2
+            myIMGcomponent1.sprite = Maps[tmpselectedLevel]; // [0]
+        }
+        else
+        {
+            //Picture Switch                                  selected
+            myIMGcomponent1.sprite = Maps[amountOfLevles - 3]; // [4]
+        }
+
+        Debug.Log("tmp"+tmpselectedLevel);
+    }
+
     public void SelectLevel_picture_right()
     {
         if (selectedLevel > 1)
@@ -104,5 +131,29 @@ public class MenuScript : MonoBehaviour
         }
 
         Debug.Log(selectedLevel);
+    }
+
+    public void SelectLevel_picture_right_change()
+    {
+        int tmpselectedLevel;
+        if (selectedLevel > 1)
+        {
+            tmpselectedLevel = selectedLevel - 1;
+        }
+        else
+        {
+            tmpselectedLevel = amountOfLevles;
+        }
+
+        if (tmpselectedLevel > 1)
+        {
+            //Picture Switch                                  selected = 2
+            myIMGcomponent3.sprite = Maps[tmpselectedLevel-2]; // [0]
+        }
+        else
+        {
+            //Picture Switch                                  selected
+            myIMGcomponent3.sprite = Maps[amountOfLevles-1]; // [4]
+        }
     }
 }
