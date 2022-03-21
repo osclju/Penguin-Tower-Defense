@@ -5,12 +5,14 @@ using UnityEngine;
 public class DragAndDrop : MonoBehaviour
 {
     
-    public Transform tower;
+    public GameObject tower;
     private bool isDragging;
 
-    public void OnMouseDown()
+    void OnMouseDown()
     {
-        
+
+        Debug.Log("dawdwad");
+
         if (gameObject.GetComponent<DragAndDrop>().enabled != false)
         {
             Instantiate(tower, transform.position, Quaternion.identity);
