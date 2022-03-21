@@ -6,14 +6,13 @@ public class collision : MonoBehaviour
 {
     int dmg, affect; 
    
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "pirate") {
             dmg = gameObject.GetComponent<bulletVar>().dmg;
             affect = gameObject.GetComponent<bulletVar>().affect;
             Debug.Log("Damage taken: " + dmg + " and affect: " + affect);
+            Destroy(gameObject);
         }
-
-        Destroy(gameObject);
     }
 }
