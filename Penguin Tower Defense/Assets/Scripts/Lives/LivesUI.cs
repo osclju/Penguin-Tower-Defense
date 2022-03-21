@@ -11,7 +11,7 @@ public class LivesUI : MonoBehaviour
     void Update()
     {
 
-        livesText.text = PlayerStats.PlayerLives.ToString() + " LIVES";
+        livesText.text = PlayerStats.PlayerLives.ToString() + " LIVES";                 //Use with a canvas to show player health
 
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private static int playerLives;
+    private static int playerLives;
     [SerializeField] private int startLives = 20; 
 
 
