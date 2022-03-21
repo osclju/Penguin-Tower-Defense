@@ -2123,6 +2123,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pirat 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8382782652876274086, guid: 9731111354035a04ca6780114674d318, type: 3}
+      propertyPath: enemyStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 349f693a5ddcf34488323ba0495a0199, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9731111354035a04ca6780114674d318, type: 3}
 --- !u!1 &593846639
