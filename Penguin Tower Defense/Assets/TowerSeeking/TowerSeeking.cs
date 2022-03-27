@@ -7,23 +7,16 @@ using UnityEngine;
 
 public class TowerSeeking : shoot
 {
-    // bool angående vad som ska targetas, används inte ännu
+    // bool angï¿½ende vad som ska targetas, anvï¿½nds inte ï¿½nnu
     [SerializeField] private bool targetFirst = true;
-    // hur långt tornet ser och kan targeta skepp
-    [SerializeField][Range(2, 15)] private float Range = 1;
+    // hur lï¿½ngt tornet ser och kan targeta skepp
+    [SerializeField][Range(2, 15)] public float Range = 1;
 
     void FixedUpdate()
     {
 
         int which2target = 0;
 
-
-
-        /*
-        int RaysToShoot = 60;
-        int RayDistance = 2;
-        float angle = 0;
-        */
 
         LayerMask pirates = LayerMask.GetMask("pirates");
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, Range, pirates);
@@ -33,7 +26,7 @@ public class TowerSeeking : shoot
 
 
             float howFar = colliders[0].GetComponent<FollowPath>().HowFarIn;
-            // här kollar vi vilken av skeppen som har kommit längst på banan beroende på en float som ligger i followath sripten
+            // hï¿½r kollar vi vilken av skeppen som har kommit lï¿½ngst pï¿½ banan beroende pï¿½ en float som ligger i followath sripten
             for (int i = 0; i < colliders.Length; i++)
             {
                 if(howFar < colliders[i].GetComponent<FollowPath>().HowFarIn) { 
@@ -44,10 +37,10 @@ public class TowerSeeking : shoot
 
                // shooting();
 
-                // Räknar ut vikeln mellan två positioner alltså skeppets XY position och tornets XY position.
+                // Rï¿½knar ut vikeln mellan tvï¿½ positioner alltsï¿½ skeppets XY position och tornets XY position.
                 // I samma veva omvandlar vi radianerna till vanliga grader med "(180 / Mathf.PI) *".
                 float lookAtAngle = (180 / Mathf.PI) * Mathf.Atan2(colliders[which2target].transform.position.y - transform.position.y, colliders[which2target].transform.position.x - transform.position.x);
-                //Sen roterar vi tornet i Z leden eftersom det är så man får till två dimensioell rotation.
+                //Sen roterar vi tornet i Z leden eftersom det ï¿½r sï¿½ man fï¿½r till tvï¿½ dimensioell rotation.
                 transform.rotation = Quaternion.Euler(0, 0, lookAtAngle);
 
         }
@@ -60,6 +53,13 @@ public class TowerSeeking : shoot
         Gizmos.DrawWireSphere(transform.position, Range);
     }
 
+
+
+    /*
+    int RaysToShoot = 60;
+    int RayDistance = 2;
+    float angle = 0;
+    */
 
     // Albin Kod
 
