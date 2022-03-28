@@ -42,7 +42,11 @@ public class TowerSeeking : shoot
                 float lookAtAngle = (180 / Mathf.PI) * Mathf.Atan2(colliders[which2target].transform.position.y - transform.position.y, colliders[which2target].transform.position.x - transform.position.x);
                 //Sen roterar vi tornet i Z leden eftersom det �r s� man f�r till tv� dimensioell rotation.
                 transform.rotation = Quaternion.Euler(0, 0, lookAtAngle);
-
+                //colliders[which2target].GetComponent<isDead>().hp--;
+        }
+        else
+        {
+               transform.rotation = Quaternion.Euler(0, 0, 0);   
         }
     }
 

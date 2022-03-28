@@ -45,7 +45,13 @@ public class FollowPath : MonoBehaviour
         
     }
     void rotera() {
+        float dy = a[currentpos].position.y - transform.position.y;
+        float dx = a[currentpos].position.x - transform.position.x;
+        Vector2 dir = new Vector2(dx, dy);
+        // The step size is equal to speed times frame time.
+        float singleStep = 2000 * Time.deltaTime;
 
-
+        Quaternion targetrot = Quaternion.LookRotation(Vector3.forward, dir);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetrot, singleStep);
     }
 }
