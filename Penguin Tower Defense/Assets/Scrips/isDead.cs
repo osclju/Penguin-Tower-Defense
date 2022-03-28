@@ -19,7 +19,8 @@ public class isDead : MonoBehaviour
     {
         if(hp <= 0)
         {
-            
+            GameObject g = GameObject.Find("Coins");
+            g.GetComponent<coins>().Coins+=20;
             Debug.Log("DEAD");
             Destroy(gameObject);
         }

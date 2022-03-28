@@ -43,13 +43,18 @@ public class DragAndDrop : MonoBehaviour
 
         Debug.Log(SafeToPlace);
 
-        if(SafeToPlace == true) { 
+        GameObject g = GameObject.Find("Coins");
+        if (SafeToPlace == true && g.GetComponent<coins>().Coins >= 250) { 
             isDragging = false;
             RangeView.SetActive(false);
             this.GetComponent<TowerMenu>().enabled = true;
             //RangeView.GetComponent<RangeScript>().enabled = false;
             gameObject.GetComponent<DragAndDrop>().enabled = false;
             gameObject.GetComponent<TowerSeeking>().enabled = true;
+
+           
+            g.GetComponent<coins>().Coins-=250;
+
         }
     }
 
