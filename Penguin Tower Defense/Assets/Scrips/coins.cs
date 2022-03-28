@@ -15,6 +15,6 @@ public class coins : MonoBehaviour
     void Update()
     {
  
-        GetComponent<UnityEngine.UI.Text>().text = "Coins: " + Coins;
+        GetComponent<UnityEngine.UI.Text>().text = "" +Coins;
     }
 }
