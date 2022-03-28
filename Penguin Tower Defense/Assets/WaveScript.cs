@@ -80,7 +80,7 @@ public class WaveScript : MonoBehaviour
             GameObject EnemyShip = Instantiate(Ship, SpawnPos, Quaternion.identity);
 
             WaveEnemies.Add(EnemyShip);
-
+            
             timer += Time.deltaTime;
             Debug.Log(timer);
 
