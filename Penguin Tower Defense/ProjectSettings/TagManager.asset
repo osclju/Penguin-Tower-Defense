@@ -8,6 +8,9 @@ TagManager:
   - firePoint
   - Gun
   - pirate
+  - NoTowerPlace
+  - Track
+  - Tower
   - KeepAlive
   layers:
   - Default
