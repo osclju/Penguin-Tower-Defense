@@ -1,18 +1,159 @@
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    static int selectedLevel = 1;
+    int amountOfLevles;
+    float ContollX, ContollY;
+    
+
+    public Sprite newImage;
+    [SerializeField] Sprite[] Maps;
+
+    [SerializeField] Image myIMGcomponent1;
+    [SerializeField] Image myIMGcomponent2;
+    [SerializeField] Image myIMGcomponent3;
+
     void Start()
     {
-        
+        amountOfLevles = SceneManager.sceneCountInBuildSettings;
+        Debug.Log(amountOfLevles);
+        myIMGcomponent1.sprite = newImage;
     }
 
     // Update is called once per frame
     void Update()
     {
+        ContollX = Input.GetAxisRaw("Horizontal");
+        ContollY = Input.GetAxisRaw("Vertical");
+    }
+    void FixedUpdate()
+    {
+        if (ContollX == -1) //Left
+        {
+            Debug.Log("left");
+        }
+        else if (ContollX == 1) //Right
+        {
+            Debug.Log("Right");
+        }
+        else if (ContollY == 1) //UP
+        {
+            Debug.Log("UP");
+        }
+        else if (ContollY == -1) //Down
+        {
+            Debug.Log("NEd");
+        }
+    }
+    
+    public void SelectLevel_picture_left()
+    {
         
+        if (selectedLevel < amountOfLevles)
+        {
+            selectedLevel++;
+        }
+        else {
+            selectedLevel = 1;
+        }
+
+        if (selectedLevel > 1)
+        {
+            //Picture Switch                                  selected = 2
+            myIMGcomponent1.sprite = Maps[selectedLevel - 2]; // [0]
+            myIMGcomponent2.sprite = Maps[selectedLevel - 1]; // [1]
+            myIMGcomponent3.sprite = Maps[selectedLevel];     // [2]
+        }
+        else {
+            //Picture Switch                                  selected
+            myIMGcomponent1.sprite = Maps[amountOfLevles - 1]; // [4]
+            myIMGcomponent2.sprite = Maps[selectedLevel - 1]; // [0]
+            myIMGcomponent3.sprite = Maps[selectedLevel];     // [1]
+        }
+        
+        Debug.Log(selectedLevel);
+    }
+
+    public void SelectLevel_picture_left_change()
+    {
+        int tmpselectedLevel;
+        if (selectedLevel < amountOfLevles)
+        {
+            tmpselectedLevel = selectedLevel + 1;
+        }
+        else
+        {
+            tmpselectedLevel = 1;
+        }
+
+        if (tmpselectedLevel > 1)
+        {
+            //Picture Switch                                  selected = 2
+            myIMGcomponent1.sprite = Maps[tmpselectedLevel]; // [0]
+        }
+        else
+        {
+            //Picture Switch                                  selected
+            myIMGcomponent1.sprite = Maps[amountOfLevles - 3]; // [4]
+        }
+
+        Debug.Log("tmp"+tmpselectedLevel);
+    }
+
+    public void SelectLevel_picture_right()
+    {
+        if (selectedLevel > 1)
+        {
+            selectedLevel--;
+        }
+        else
+        {
+            selectedLevel = amountOfLevles;
+        }
+
+        if (selectedLevel > 1)
+        {
+            //Picture Switch                                  selected = 2
+            myIMGcomponent1.sprite = Maps[selectedLevel - 2]; // [0]
+            myIMGcomponent2.sprite = Maps[selectedLevel - 1]; // [1]
+            myIMGcomponent3.sprite = Maps[selectedLevel];     // [2]
+        }
+        else
+        {
+            //Picture Switch                                  selected
+            myIMGcomponent1.sprite = Maps[amountOfLevles - 1]; // [4]
+            myIMGcomponent2.sprite = Maps[selectedLevel - 1]; // [0]
+            myIMGcomponent3.sprite = Maps[selectedLevel];     // [1]
+        }
+
+        Debug.Log(selectedLevel);
+    }
+
+    public void SelectLevel_picture_right_change()
+    {
+        int tmpselectedLevel;
+        if (selectedLevel > 1)
+        {
+            tmpselectedLevel = selectedLevel - 1;
+        }
+        else
+        {
+            tmpselectedLevel = amountOfLevles;
+        }
+
+        if (tmpselectedLevel > 1)
+        {
+            //Picture Switch                                  selected = 2
+            myIMGcomponent3.sprite = Maps[tmpselectedLevel-2]; // [0]
+        }
+        else
+        {
+            //Picture Switch                                  selected
+            myIMGcomponent3.sprite = Maps[amountOfLevles-1]; // [4]
+        }
     }
 }
