@@ -12,6 +12,7 @@ public class TowerSeeking : shoot
     // hur l�ngt tornet ser och kan targeta skepp
     [SerializeField][Range(2, 15)] public float Range = 1;
 
+
     void FixedUpdate()
     {
 
@@ -23,7 +24,6 @@ public class TowerSeeking : shoot
         
         if (colliders.Length > 0)
         {
-
 
             float howFar = colliders[0].GetComponent<FollowPath>().HowFarIn;
             // h�r kollar vi vilken av skeppen som har kommit l�ngst p� banan beroende p� en float som ligger i followath sripten
@@ -42,7 +42,11 @@ public class TowerSeeking : shoot
                 float lookAtAngle = (180 / Mathf.PI) * Mathf.Atan2(colliders[which2target].transform.position.y - transform.position.y, colliders[which2target].transform.position.x - transform.position.x);
                 //Sen roterar vi tornet i Z leden eftersom det �r s� man f�r till tv� dimensioell rotation.
                 transform.rotation = Quaternion.Euler(0, 0, lookAtAngle);
-
+                //colliders[which2target].GetComponent<isDead>().hp--;
+        }
+        else
+        {
+               transform.rotation = Quaternion.Euler(0, 0, 0);   
         }
     }
 
