@@ -30,7 +30,6 @@ public class TowerSeeking : shoot
         {
             hasFound = true;
 
-
             float howFar = colliders[0].GetComponent<FollowPath>().HowFarIn;
             // h�r kollar vi vilken av skeppen som har kommit l�ngst p� banan beroende p� en float som ligger i followath sripten
             for (int i = 0; i < colliders.Length; i++)
