@@ -7,7 +7,7 @@ public class isDead : MonoBehaviour
   
     [SerializeField] public int hp;
 
-    // Kan göra listor av dessa så att skeppen har flera effective och immuninty
+    // Kan gï¿½ra listor av dessa sï¿½ att skeppen har flera effective och immuninty
     [SerializeField] public int immunity;
     [SerializeField] public int superEffective;
     
@@ -16,6 +16,8 @@ public class isDead : MonoBehaviour
     {
         if(hp <= 0)
         {
+            GameObject g = GameObject.Find("Coins");
+            g.GetComponent<coins>().Coins+=20;
             Debug.Log("DEAD");
             Destroy(gameObject);
         }

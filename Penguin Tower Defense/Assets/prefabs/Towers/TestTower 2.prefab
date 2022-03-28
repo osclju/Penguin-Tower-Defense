@@ -48,6 +48,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -104,6 +105,7 @@ MonoBehaviour:
   targetFirst: 1
   Range: 6
   gun: {fileID: 4532261384798755742}
+  Range: 3
 --- !u!114 &1005019031541017433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +205,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
