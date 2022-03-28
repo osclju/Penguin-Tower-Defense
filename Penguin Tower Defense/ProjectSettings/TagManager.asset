@@ -8,6 +8,7 @@ TagManager:
   - firePoint
   - Gun
   - pirate
+  - KeepAlive
   layers:
   - Default
   - TransparentFX
