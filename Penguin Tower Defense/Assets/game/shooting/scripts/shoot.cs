@@ -11,6 +11,7 @@ public class shoot : MonoBehaviour
     private GameObject clone;
     private Rigidbody2D pew;
 
+    private objectPool pool;
 
     // punkt att skjutas ifrån
     private Vector3 pos;
@@ -18,21 +19,30 @@ public class shoot : MonoBehaviour
 
     // variabler från bullets
     private float b_speed;
-    private float b_dmg;
     private float b_firerate;
-    private int b_affect;
-    private bool shootingStopped = false; 
-   
+    private float b_range;
+    private bool shootingStopped = false;
+
+    // time
+    private float lol;
+
     void Start()
     {
+        pool
+
+
         fp = transform.Find("firePoint");
         //hämtar alla variabler från bullet
-        
-        b_dmg = bulletPrefab.GetComponent<bulletVar>().dmg;
         b_speed = bulletPrefab.GetComponent<bulletVar>().speed;
         b_firerate = bulletPrefab.GetComponent<bulletVar>().firerate;
-        b_affect = bulletPrefab.GetComponent<bulletVar>().affect;
-        
+        b_range = bulletPrefab.GetComponent<bulletVar>().meterRange / 2;
+       
+        if (b_firerate < 1)
+        {
+            lol = 0.1f;
+        }
+        // v = s / t
+        // s = t * v
     }
     private void Update()
     {
@@ -62,13 +72,14 @@ public class shoot : MonoBehaviour
         // add arrays 
         float duration = b_firerate; // 3 seconds you can change this 
                                      //to whatever you want
+
         while (duration > 0f)
         {
             if (shootingStopped){
                 yield break;
             }
             else {
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(lol);
             }
 
             duration--;
@@ -86,8 +97,13 @@ public class shoot : MonoBehaviour
         clone = Instantiate(bulletPrefab, pos, Quaternion.Euler(angle));
         pew = clone.GetComponent<Rigidbody2D>();
         // ger en relativ force rakt uppåt, så det hållet som vapnet pekar
+        
+
+
+        
+        
         pew.AddRelativeForce(new Vector3(0, -b_speed), ForceMode2D.Force);
-        Destroy(clone, 2f); 
+        Destroy(clone, b_range); 
     }
     // special effect 
 
