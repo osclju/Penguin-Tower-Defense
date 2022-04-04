@@ -1193,7 +1193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2660,7 +2660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1044357094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3374,8 +3374,8 @@ MonoBehaviour:
   selectLevel_start: {fileID: 719756773}
   Maps:
   - {fileID: 21300000, guid: 04d6f9ef8d62a534cbf844bd5a0bfb05, type: 3}
-  - {fileID: 21300000, guid: 6d2b9ba1ffbdf17488aae0cef032bd15, type: 3}
-  - {fileID: 21300000, guid: 203ae2b7929a99f44855ef69539b9d1b, type: 3}
+  - {fileID: 21300000, guid: ef2fabc2d0cdbcd41820cb502687ffd5, type: 3}
+  - {fileID: 21300000, guid: a403499346c2c8845b3c27b9e30ff08d, type: 3}
   - {fileID: 21300000, guid: a5e36cbe5cde6e247a9df18cfcc70377, type: 3}
   - {fileID: 21300000, guid: 04d6f9ef8d62a534cbf844bd5a0bfb05, type: 3}
   myIMGcomponent1: {fileID: 287761778}
@@ -3498,7 +3498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1424822609
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4430,7 +4430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4441,7 +4441,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
