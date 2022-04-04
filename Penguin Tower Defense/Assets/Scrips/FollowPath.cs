@@ -32,11 +32,11 @@ public class FollowPath : MonoBehaviour
             if(transform.position.x == a[currentpos].position.x && transform.position.y == a[currentpos].position.y)
             {
                 currentpos++;
-                rotera();
+                //rotera();
 
             }
 
-
+            rotera();
             HowFarIn += speed * Time.deltaTime;
             gameObject.transform.position = Vector2.MoveTowards(transform.position, a[currentpos].position, speed * Time.deltaTime);
 
@@ -49,7 +49,7 @@ public class FollowPath : MonoBehaviour
         float dx = a[currentpos].position.x - transform.position.x;
         Vector2 dir = new Vector2(dx, dy);
         // The step size is equal to speed times frame time.
-        float singleStep = 2000 * Time.deltaTime;
+        float singleStep = 500 * Time.deltaTime;
 
         Quaternion targetrot = Quaternion.LookRotation(Vector3.forward, dir);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetrot, singleStep);

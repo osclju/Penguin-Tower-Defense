@@ -6665,6 +6665,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTower
       objectReference: {fileID: 0}
+    - target: {fileID: 1715260788708041641, guid: 6786f8f398c153549b0de9d355766033, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 3489926943197681010, guid: 6786f8f398c153549b0de9d355766033, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
