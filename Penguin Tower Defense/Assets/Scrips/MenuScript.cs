@@ -8,23 +8,31 @@ public class MenuScript : MonoBehaviour
     static int selectedLevel = 1;
     int amountOfLevles;
     float ContollX, ContollY;
+    bool waited = false, running_waitfor = false;
     
+    LevelLoader levelloader;
 
-    public Sprite newImage;
+    [SerializeField] Button selectLevel_start;
+
     [SerializeField] Sprite[] Maps;
 
     [SerializeField] Image myIMGcomponent1;
     [SerializeField] Image myIMGcomponent2;
     [SerializeField] Image myIMGcomponent3;
 
-    void Start()
+    void Awake()
     {
         amountOfLevles = SceneManager.sceneCountInBuildSettings;
-        Debug.Log(amountOfLevles);
-        myIMGcomponent1.sprite = newImage;
+        Debug.Log("Levels: "+amountOfLevles);
+        StartCoroutine(Waitfor(1f));
+        levelloader = GameObject.FindObjectOfType<LevelLoader>();
+        selectLevel_start.onClick.AddListener(selectLevel);
     }
 
-    // Update is called once per frame
+    void selectLevel()
+    {
+        levelloader.LoadSelectedLevel(selectedLevel);
+    }
     void Update()
     {
         ContollX = Input.GetAxisRaw("Horizontal");
@@ -32,24 +40,43 @@ public class MenuScript : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (ContollX == -1) //Left
+        if (waited == true)
         {
-            Debug.Log("left");
+            if (ContollX == -1) //Left
+            {
+                SelectLevel_picture_left();
+                waited = false;
+            }
+            else if (ContollX == 1) //Right
+            {
+                SelectLevel_picture_right();
+                waited = false;
+            }
+            else if (ContollY == 1) //UP
+            {
+                Debug.Log("UP");
+            }
+            else if (ContollY == -1) //Down
+            {
+                Debug.Log("NEd");
+            }
         }
-        else if (ContollX == 1) //Right
-        {
-            Debug.Log("Right");
-        }
-        else if (ContollY == 1) //UP
-        {
-            Debug.Log("UP");
-        }
-        else if (ContollY == -1) //Down
-        {
-            Debug.Log("NEd");
+        else {
+            if (running_waitfor == false)
+            {
+                StartCoroutine(Waitfor(0.1f));
+            }
         }
     }
-    
+
+    private IEnumerator Waitfor(float wait_secounds)
+    {
+        running_waitfor = true;
+        yield return new WaitForSeconds(wait_secounds);
+        waited = true;
+        running_waitfor = false;
+    }
+
     public void SelectLevel_picture_left()
     {
         
@@ -75,7 +102,6 @@ public class MenuScript : MonoBehaviour
             myIMGcomponent3.sprite = Maps[selectedLevel];     // [1]
         }
         
-        Debug.Log(selectedLevel);
     }
 
     public void SelectLevel_picture_left_change()
@@ -101,7 +127,6 @@ public class MenuScript : MonoBehaviour
             myIMGcomponent1.sprite = Maps[amountOfLevles - 3]; // [4]
         }
 
-        Debug.Log("tmp"+tmpselectedLevel);
     }
 
     public void SelectLevel_picture_right()
@@ -130,7 +155,6 @@ public class MenuScript : MonoBehaviour
             myIMGcomponent3.sprite = Maps[selectedLevel];     // [1]
         }
 
-        Debug.Log(selectedLevel);
     }
 
     public void SelectLevel_picture_right_change()

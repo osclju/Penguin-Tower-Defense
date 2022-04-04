@@ -3371,11 +3371,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31e22cf0bc3ae2479a81be6fc1b569e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newImage: {fileID: 21300000, guid: a5e36cbe5cde6e247a9df18cfcc70377, type: 3}
+  selectLevel_start: {fileID: 719756773}
   Maps:
   - {fileID: 21300000, guid: 04d6f9ef8d62a534cbf844bd5a0bfb05, type: 3}
-  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 21300000, guid: 6d2b9ba1ffbdf17488aae0cef032bd15, type: 3}
+  - {fileID: 21300000, guid: 203ae2b7929a99f44855ef69539b9d1b, type: 3}
   - {fileID: 21300000, guid: a5e36cbe5cde6e247a9df18cfcc70377, type: 3}
   - {fileID: 21300000, guid: 04d6f9ef8d62a534cbf844bd5a0bfb05, type: 3}
   myIMGcomponent1: {fileID: 287761778}
