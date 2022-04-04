@@ -11,7 +11,6 @@ public class shoot : MonoBehaviour
     private GameObject clone;
     private Rigidbody2D pew;
 
-    private Coroutine[] lol; 
 
     // punkt att skjutas ifrån
     private Vector3 pos;
@@ -19,10 +18,10 @@ public class shoot : MonoBehaviour
 
     // variabler från bullets
     private float b_speed;
-   
     private float b_dmg;
     private float b_firerate;
     private int b_affect;
+    private bool shootingStopped = false; 
    
     void Start()
     {
@@ -37,23 +36,27 @@ public class shoot : MonoBehaviour
     }
     private void Update()
     {
+        // För testing, kan ta bort detta sen när det fungerar
         if (Input.GetKeyDown("space"))
         {
-            shooting();
-            StartCoroutine(Countdown());
+            startShooting();
         }
         else if(Input.GetKeyDown("return"))
         {
-            kill();
+            Debug.Log("you have stopped");
+            stopShooting();
         }
     }
 
     public void startShooting() {
+        shootingStopped = false;
         shooting();
         StartCoroutine(Countdown());
     }
-
-
+    public void stopShooting()
+    {
+        shootingStopped = true;
+    }
     private IEnumerator Countdown()
     {
         // add arrays 
@@ -61,7 +64,13 @@ public class shoot : MonoBehaviour
                                      //to whatever you want
         while (duration > 0f)
         {
-            yield return new WaitForSeconds (1);
+            if (shootingStopped){
+                yield break;
+            }
+            else {
+                yield return new WaitForSeconds(1);
+            }
+
             duration--;
         }
         shooting();
@@ -87,10 +96,4 @@ public class shoot : MonoBehaviour
     //  Do nothing 
     // or do all
     // }
-
-    // i detection
-
-    private void kill() {
-        StopCoroutine("Countdown");
-    }
 }

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5309304002408282196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.396, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1933127315051242602}
@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 8750661577041742260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.161, y: 0.161, z: 0.161}
   m_Children:
   - {fileID: 7799240999539264241}
   m_Father: {fileID: 0}
@@ -151,8 +151,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000029802322, y: -0.00544852}
-  m_Size: {x: 0.9576737, y: 1.9698323}
+  m_Offset: {x: -0.00032143935, y: -0.39019692}
+  m_Size: {x: 0.969064, y: 1.9840133}
   m_Direction: 0
 --- !u!114 &42371922391011621
 MonoBehaviour:
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea74c9f2352f9b54bab443c90d140441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2000
+  speed: 1000
   dmg: 10
   firerate: 1
   affect: 0
