@@ -51,6 +51,7 @@ MonoBehaviour:
   dmg: 2
   firerate: 10
   affect: 1
+  meterRange: 1.32
 --- !u!114 &-4770795299684242579
 MonoBehaviour:
   m_ObjectHideFlags: 0
