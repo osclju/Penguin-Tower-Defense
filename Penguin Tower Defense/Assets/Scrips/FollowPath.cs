@@ -25,8 +25,11 @@ public class FollowPath : MonoBehaviour
         }*/
 
         if (currentpos == a.Length) {
-            Debug.Log("D�D");
+            EnemyController ec = gameObject.GetComponent<EnemyController>();
+            ec.DealDamage();
+            Debug.Log("EnemyIsDead");
             ded = true;
+            Destroy(gameObject);
         }
         else {
             if(transform.position.x == a[currentpos].position.x && transform.position.y == a[currentpos].position.y)
@@ -54,4 +57,5 @@ public class FollowPath : MonoBehaviour
         Quaternion targetrot = Quaternion.LookRotation(Vector3.forward, dir);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetrot, singleStep);
     }
+    
 }
