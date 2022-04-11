@@ -29,7 +29,11 @@ public class MenuScript : MonoBehaviour
         StartCoroutine(Waitfor(1f));
         levelloader = GameObject.FindObjectOfType<LevelLoader>();
         selectLevel_start.onClick.AddListener(selectLevel);
+<<<<<<< HEAD
         //Laddar in fï¿½rsta bilderna
+=======
+        //Laddar in första bilderna
+>>>>>>> develop
         myIMGcomponent1.sprite = Maps[amountOfLevles-1];
         myIMGcomponent2.sprite = Maps[0];
         myIMGcomponent3.sprite = Maps[1];
@@ -47,7 +51,11 @@ public class MenuScript : MonoBehaviour
 
     void CheckSelected()
     {
+<<<<<<< HEAD
         if (EventSystem.current.currentSelectedGameObject && EventSystem.current.currentSelectedGameObject.activeInHierarchy) //Om en knapp ï¿½r selected
+=======
+        if (EventSystem.current.currentSelectedGameObject && EventSystem.current.currentSelectedGameObject.activeInHierarchy) //Om en knapp är selected
+>>>>>>> develop
         {
             
         }
