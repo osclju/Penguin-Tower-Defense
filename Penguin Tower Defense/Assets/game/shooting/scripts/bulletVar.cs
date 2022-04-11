@@ -8,9 +8,9 @@ public class bulletVar : MonoBehaviour
     public int speed;
     public int dmg;
     [SerializeField][Range(0f, 5f)]
-    public float firerate;
+    public float timeBetweenShots;
     public int affect;
     [SerializeField]
     [Range(0f, 10f)]
-    public float meterRange;
+    public float timeLeft;
 }
