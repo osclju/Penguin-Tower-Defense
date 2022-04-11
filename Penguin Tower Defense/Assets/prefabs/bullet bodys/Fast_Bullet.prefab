@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -4770795299684242579}
   - component: {fileID: 8395566727912136708}
   - component: {fileID: 1991148480568618853}
+  - component: {fileID: 8733560565175931232}
   m_Layer: 0
   m_Name: Fast_Bullet
   m_TagString: Untagged
@@ -101,6 +102,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0062161684, y: -0.0031080842}
   m_Size: {x: 0.97242975, y: 1.9883727}
   m_Direction: 0
+--- !u!114 &8733560565175931232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408921267155858384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36320bad157a2d4cb53638ca9da01f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &833785260128825198
 GameObject:
   m_ObjectHideFlags: 0

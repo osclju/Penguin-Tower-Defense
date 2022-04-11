@@ -26,6 +26,16 @@ public class shoot : MonoBehaviour
     // time
     private float timeChange = 1;
 
+
+
+    // pooling
+    [SerializeField]
+    private float timeToSpawn = 5f;
+    private float timeSinceSpawn;
+    private objectPool objectPool;
+    [SerializeField]
+    private GameObject prefab;
+
     void Start()
     {
         fp = transform.Find("firePoint");
@@ -38,11 +48,20 @@ public class shoot : MonoBehaviour
         {
             timeChange = 0.1f;
         }
-        // v = s / t
-        // s = t * v
+        // pooling
+        objectPool = FindObjectOfType<objectPool>();
     }
     private void Update()
     {
+        // pooling
+        timeSinceSpawn += Time.deltaTime;
+        if (timeSinceSpawn >= timeToSpawn) {
+            GameObject clone = objectPool.GetObject(prefab);
+            clone.transform.position = this.transform.position;
+            timeSinceSpawn = 0f;
+        }
+
+
         // För testing, kan ta bort detta sen när det fungerar
         if (Input.GetKeyDown("space"))
         {
