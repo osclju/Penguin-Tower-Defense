@@ -7,8 +7,6 @@ public class DragAndDrop : MonoBehaviour
     
     public GameObject tower;
     public GameObject RangeView;
-
-
     [SerializeField][Range(1f, 3f)] float TowerFootprint = 2f;
     public bool isDragging = false;
     public bool SafeToPlace = false;
@@ -20,6 +18,15 @@ public class DragAndDrop : MonoBehaviour
     }
 
 
+    private void Start()
+    {
+        isDragging = true;
+        RangeView.SetActive(true);
+        RangeView.GetComponent<RangeScript>().enabled = true;
+    }
+
+
+    /*
     public void OnMouseDown()
     {
         if(isDragging == false) { 
@@ -32,30 +39,14 @@ public class DragAndDrop : MonoBehaviour
                 isDragging = true;
             }
         }
-
-
-
-
     }
+    */
+
 
     public void OnMouseUp()
     {
 
-        Debug.Log(SafeToPlace);
 
-        GameObject g = GameObject.Find("Coins");
-        if (SafeToPlace == true && g.GetComponent<coins>().Coins >= 250) { 
-            isDragging = false;
-            RangeView.SetActive(false);
-            this.GetComponent<TowerMenu>().enabled = true;
-            //RangeView.GetComponent<RangeScript>().enabled = false;
-            gameObject.GetComponent<DragAndDrop>().enabled = false;
-            gameObject.GetComponent<TowerSeeking>().enabled = true;
-
-           
-            g.GetComponent<coins>().Coins-=250;
-
-        }
     }
 
     void FixedUpdate()
@@ -65,19 +56,49 @@ public class DragAndDrop : MonoBehaviour
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             transform.Translate(mousePosition);
 
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, TowerFootprint, 1, 0);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, TowerFootprint);
 
             SafeToPlace = true;
             for (int i = 0; i < colliders.Length; i++)
             {
-                if (colliders[i].name != gameObject.name && (colliders[i].tag == "Track" || colliders[i].tag == "Tower"))
+                if (colliders[i].name != gameObject.name && (colliders[i].tag == "Track" || colliders[i].tag == "Tower" || colliders[i].tag == "NoTowerPlace"))
                 {
                     SafeToPlace = false;
                     break;
                 }
             }
+        }
+    }
+    void Update()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+
+            Debug.Log(SafeToPlace);
+            GameObject g = GameObject.Find("Coins");
+            if (SafeToPlace == true && g.GetComponent<coins>().Coins >= 250)
+            {
+                isDragging = false;
+                RangeView.SetActive(false);
+                this.GetComponent<TowerMenu>().enabled = true;
+                //RangeView.GetComponent<RangeScript>().enabled = false;
+                gameObject.GetComponent<DragAndDrop>().enabled = false;
+                gameObject.GetComponent<TowerSeeking>().enabled = true;
+                g.GetComponent<coins>().Coins -= 50;
+
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1)) {
+
+            Destroy(gameObject);
+
 
         }
+
+
+
+
     }
 
 
