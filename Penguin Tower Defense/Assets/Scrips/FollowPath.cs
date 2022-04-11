@@ -36,7 +36,6 @@ public class FollowPath : MonoBehaviour
             {
                 currentpos++;
                 rotera();
-
             }
 
 
