@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class objectReturn : MonoBehaviour
 {
     private objectPool objectPool;
     
@@ -15,14 +15,8 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void OnDisable()
     {
-        if (objectPool != null) { 
-        
+        if (objectPool != null) {
+            objectPool.ReturnGameObject(this.gameObject);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
+}  
