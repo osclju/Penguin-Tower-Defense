@@ -50,7 +50,7 @@ public class objectPool : MonoBehaviour
     private Dictionary<string, Queue<GameObject>> Pool = new Dictionary<string, Queue<GameObject>>();
 
     public GameObject GetObject(GameObject Object) {
-        if (Pool.TryGetValue(gameObject.name, out Queue<GameObject> objectList){
+        if (Pool.TryGetValue(gameObject.name, out Queue<GameObject> objectList)){
             if (objectList.Count == 0)
             {
                 return CreateNewObject(Object);
