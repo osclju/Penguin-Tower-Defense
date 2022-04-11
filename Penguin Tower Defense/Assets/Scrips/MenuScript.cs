@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MenuScript : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class MenuScript : MonoBehaviour
     bool waited = false, running_waitfor = false;
     
     LevelLoader levelloader;
+    GameObject LevelSelect;
 
     [SerializeField] Button selectLevel_start;
 
@@ -27,11 +29,32 @@ public class MenuScript : MonoBehaviour
         StartCoroutine(Waitfor(1f));
         levelloader = GameObject.FindObjectOfType<LevelLoader>();
         selectLevel_start.onClick.AddListener(selectLevel);
+        //Laddar in f�rsta bilderna
+        myIMGcomponent1.sprite = Maps[amountOfLevles-1];
+        myIMGcomponent2.sprite = Maps[0];
+        myIMGcomponent3.sprite = Maps[1];
+    }
+
+    public void SelectButton()
+    {
+        FindObjectOfType<Button>().Select();
     }
 
     void selectLevel()
     {
         levelloader.LoadSelectedLevel(selectedLevel);
+    }
+
+    void CheckSelected()
+    {
+        if (EventSystem.current.currentSelectedGameObject && EventSystem.current.currentSelectedGameObject.activeInHierarchy) //Om en knapp �r selected
+        {
+            
+        }
+        else //Markera en knapp
+        {
+            SelectButton();
+        }
     }
     void Update()
     {
@@ -52,13 +75,13 @@ public class MenuScript : MonoBehaviour
                 SelectLevel_picture_right();
                 waited = false;
             }
-            else if (ContollY == 1) //UP
+            else if (ContollY == 1) // Up
             {
-                Debug.Log("UP");
+                CheckSelected();
             }
             else if (ContollY == -1) //Down
             {
-                Debug.Log("NEd");
+                CheckSelected();
             }
         }
         else {
