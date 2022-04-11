@@ -11,6 +11,7 @@ TagManager:
   - NoTowerPlace
   - Track
   - Tower
+  - KeepAlive
   layers:
   - Default
   - TransparentFX
