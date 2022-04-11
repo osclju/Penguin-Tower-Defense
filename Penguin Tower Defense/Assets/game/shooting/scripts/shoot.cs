@@ -19,27 +19,24 @@ public class shoot : MonoBehaviour
 
     // variabler från bullets
     private float b_speed;
-    private float b_firerate;
+    private float b_timeBetweenShoots;
     private float b_range;
     private bool shootingStopped = false;
 
     // time
-    private float lol;
+    private float timeChange = 1;
 
     void Start()
     {
-        pool
-
-
         fp = transform.Find("firePoint");
         //hämtar alla variabler från bullet
         b_speed = bulletPrefab.GetComponent<bulletVar>().speed;
-        b_firerate = bulletPrefab.GetComponent<bulletVar>().firerate;
-        b_range = bulletPrefab.GetComponent<bulletVar>().meterRange / 2;
+        b_timeBetweenShoots = bulletPrefab.GetComponent<bulletVar>().timeBetweenShots;
+        b_range = bulletPrefab.GetComponent<bulletVar>().timeLeft / 2;
        
-        if (b_firerate < 1)
+        if (b_timeBetweenShoots < 1)
         {
-            lol = 0.1f;
+            timeChange = 0.1f;
         }
         // v = s / t
         // s = t * v
@@ -70,7 +67,7 @@ public class shoot : MonoBehaviour
     private IEnumerator Countdown()
     {
         // add arrays 
-        float duration = b_firerate; // 3 seconds you can change this 
+        float duration = b_timeBetweenShoots; // 3 seconds you can change this 
                                      //to whatever you want
 
         while (duration > 0f)
@@ -79,10 +76,10 @@ public class shoot : MonoBehaviour
                 yield break;
             }
             else {
-                yield return new WaitForSeconds(lol);
+                yield return new WaitForSeconds(timeChange);
             }
 
-            duration--;
+            duration -= timeChange;
         }
         shooting();
         StartCoroutine(Countdown());

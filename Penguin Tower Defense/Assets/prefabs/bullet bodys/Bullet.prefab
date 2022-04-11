@@ -180,6 +180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1000
   dmg: 10
-  firerate: 0.69
+  timeBetweenShots: 1
   affect: 0
-  meterRange: 2
+  timeLeft: 1
