@@ -4,15 +4,15 @@ using System;
 
 namespace OWS.ObjectPooling
 {
-    public class ObjectPool<T> : IPool<T> where T : MonoBehaviour, IPoolable<T>
+    public class MyObjectPool<T> : IPool<T> where T : MonoBehaviour, IPoolable<T>
     {
-        public ObjectPool(GameObject pooledObject, int numToSpawn = 0)
+        public MyObjectPool(GameObject pooledObject, int numToSpawn = 0)
         {
             this.prefab = pooledObject;
             Spawn(numToSpawn);
         }
 
-        public ObjectPool(GameObject pooledObject, Action<T> pullObject, Action<T> pushObject, int numToSpawn = 0)
+        public MyObjectPool(GameObject pooledObject, Action<T> pullObject, Action<T> pushObject, int numToSpawn = 0)
         {
             this.prefab = pooledObject;
             this.pullObject = pullObject;
