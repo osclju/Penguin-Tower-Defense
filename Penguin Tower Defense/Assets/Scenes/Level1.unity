@@ -4681,6 +4681,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.59
       objectReference: {fileID: 0}
+    - target: {fileID: 8000054922817608082, guid: 7d9e034b912e7e94abf6d3dbba972958, type: 3}
+      propertyPath: objPrefab
+      value: 
+      objectReference: {fileID: 408921267155858384, guid: cb2279478634965439e74fe32ef5b2ac, type: 3}
     - target: {fileID: 8457394865973254916, guid: 7d9e034b912e7e94abf6d3dbba972958, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6046,49 +6050,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1939299729
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1939299731}
-  - component: {fileID: 1939299730}
-  m_Layer: 0
-  m_Name: objectpool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1939299730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939299729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3ae942a0724140498086f8ca9cb3e53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1939299731
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939299729}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4446334, y: 1.7844971, z: -308.493}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2013934019
 GameObject:
   m_ObjectHideFlags: 0
@@ -6644,6 +6605,10 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 2873961278192247661, guid: 6786f8f398c153549b0de9d355766033, type: 3}
+      propertyPath: objPrefab
+      value: 
+      objectReference: {fileID: 8750661577041742260, guid: 6c5549fc043d2f344b6765688d2a2ef9, type: 3}
     - target: {fileID: 3489926943197681010, guid: 6786f8f398c153549b0de9d355766033, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
