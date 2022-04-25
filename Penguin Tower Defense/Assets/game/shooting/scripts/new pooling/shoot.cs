@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using OWS.ObjectPooling;
 
 public class shoot : MonoBehaviour
 {    
     // skjuta prefabsen
     private Transform fp; 
-    [SerializeField]  
-    private GameObject bulletPrefab;
-    private GameObject clone;
+    //[SerializeField]  
+    //private GameObject bulletPrefab;
+    //private GameObject clone;
     private Rigidbody2D pew;
-
-    private objectPool pool;
 
     // punkt att skjutas ifrån
     private Vector3 pos;
@@ -26,41 +25,51 @@ public class shoot : MonoBehaviour
     // time
     private float timeChange = 1;
 
-
-
     // pooling
+    private static MyObjectPool<PoolObject> bulletPool;
+    [SerializeField] private GameObject objPrefab;
+    
+    
+    
+    // pooling
+    /*
     [SerializeField]
     private float timeToSpawn = 5f;
     private float timeSinceSpawn;
     private objectPool objectPool;
     [SerializeField]
     private GameObject prefab;
-
+    */
+    private void Awake()
+    {
+        bulletPool = new MyObjectPool<PoolObject>(objPrefab, 2);
+    }
     void Start()
     {
         fp = transform.Find("firePoint");
         //hämtar alla variabler från bullet
-        b_speed = bulletPrefab.GetComponent<bulletVar>().speed;
-        b_timeBetweenShoots = bulletPrefab.GetComponent<bulletVar>().timeBetweenShots;
-        b_range = bulletPrefab.GetComponent<bulletVar>().timeLeft / 2;
+        b_speed = objPrefab.GetComponent<bulletVar>().speed;
+        b_timeBetweenShoots = objPrefab.GetComponent<bulletVar>().timeBetweenShots;
+        b_range = objPrefab.GetComponent<bulletVar>().timeLeft / 2;
        
         if (b_timeBetweenShoots < 1)
         {
             timeChange = 0.1f;
         }
         // pooling
-        objectPool = FindObjectOfType<objectPool>();
+        //objectPool = FindObjectOfType<objectPool>();
     }
     private void Update()
     {
         // pooling
+        /*
         timeSinceSpawn += Time.deltaTime;
         if (timeSinceSpawn >= timeToSpawn) {
             GameObject clone = objectPool.GetObject(prefab);
             clone.transform.position = this.transform.position;
             timeSinceSpawn = 0f;
         }
-
+        */
 
         // För testing, kan ta bort detta sen när det fungerar
         if (Input.GetKeyDown("space"))
@@ -105,21 +114,24 @@ public class shoot : MonoBehaviour
     }
 
     public void shooting() {
+        
+        /* Detta borde fungera */ 
+       
         // räknar ur posiiton och rikting där projectilen ska skjutas 
         pos = fp.position;
         angle = fp.transform.eulerAngles;
         angle += new Vector3(0, 0, 90);
         // skapar en klon av bullet prefab som skjuts iväg
+        /*
         clone = Instantiate(bulletPrefab, pos, Quaternion.Euler(angle));
-        pew = clone.GetComponent<Rigidbody2D>();
+        */
         // ger en relativ force rakt uppåt, så det hållet som vapnet pekar
-        
 
+        GameObject poolClone = bulletPool.PullGameObject(pos, Quaternion.Euler(angle));
+        pew = poolClone.GetComponent<Rigidbody2D>();
 
-        
-        
         pew.AddRelativeForce(new Vector3(0, -b_speed), ForceMode2D.Force);
-        Destroy(clone, b_range); 
+       
     }
     // special effect 
 

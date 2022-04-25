@@ -13,16 +13,16 @@ public class Spawner : MonoBehaviour
     public GameObject capsulePrefab;
     [Range(1f, 15f)]
     public float range = 5f;
-    private static ObjectPool<PoolObject> cubePool;
-    private static ObjectPool<PoolObject> spherePool;
-    private static ObjectPool<PoolObject> capsulePool;
+    private static MyObjectPool<PoolObject> cubePool;
+    private static MyObjectPool<PoolObject> spherePool;
+    private static MyObjectPool<PoolObject> capsulePool;
     public bool canSpawn = true;
 
     private void OnEnable()
     {
-        cubePool = new ObjectPool<PoolObject>(cubePrefab);
-        spherePool = new ObjectPool<PoolObject>(spherePrefab);
-        capsulePool = new ObjectPool<PoolObject>(capsulePrefab);
+        cubePool = new MyObjectPool<PoolObject>(cubePrefab);
+        spherePool = new MyObjectPool<PoolObject>(spherePrefab);
+        capsulePool = new MyObjectPool<PoolObject>(capsulePrefab);
 
         StartCoroutine(SpawnOverTime());
     }
