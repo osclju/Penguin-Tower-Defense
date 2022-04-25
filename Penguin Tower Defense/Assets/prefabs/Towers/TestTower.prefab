@@ -352,8 +352,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 408921267155858384, guid: cb2279478634965439e74fe32ef5b2ac, type: 3}
+  objPrefab: {fileID: 408921267155858384, guid: cb2279478634965439e74fe32ef5b2ac, type: 3}
   targetFirst: 1
   Range: 6
+  spin: 1
   gun: {fileID: 8000054922817608080}
 --- !u!114 &8000054921614808497
 MonoBehaviour:

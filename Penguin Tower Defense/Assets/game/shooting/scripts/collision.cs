@@ -22,7 +22,7 @@ public class collision : MonoBehaviour
             ship.hp -= dmg;
             
             Debug.Log("Damage taken: " + dmg + " and affect: " + affect + "HP left: " + ship.hp);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
