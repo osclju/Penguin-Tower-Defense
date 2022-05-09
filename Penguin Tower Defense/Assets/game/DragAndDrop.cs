@@ -74,7 +74,7 @@ public class DragAndDrop : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
 
-            Debug.Log(SafeToPlace);
+            //Debug.Log(SafeToPlace);
             GameObject g = GameObject.Find("Coins");
             if (SafeToPlace == true && g.GetComponent<coins>().Coins >= 250)
             {

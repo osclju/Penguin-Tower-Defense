@@ -39,14 +39,11 @@ public class WaveScript : MonoBehaviour
 
         for (int i = 0; i < maxWave-1; i++) { 
 
-            Debug.Log(waves[i]);
-
+            Debug.Log(waves[i] + " |");
+            
         }
 
-        
-
     }
-
 
     private void Start()
     {
@@ -55,19 +52,17 @@ public class WaveScript : MonoBehaviour
        SpawnPos = pos1 - pos2;
     }
 
-
     private void OnMouseUp()
     {
         if(!WaveRunning) {
 
             WaveRunning = true;
+            Debug.Log(CurrentRound);
             CurrentRound++;
-
-            string[] tmp = waves[CurrentRound].Split(char.Parse(","));
+            string[] tmp = waves[CurrentRound-1].Split(char.Parse(","));
 
             int roundLength = tmp.Length;
 
-            Debug.Log(roundLength);
             for (int i = 0; i < roundLength; i++)
             {
                 int value = int.Parse(tmp[i]);
@@ -99,8 +94,6 @@ public class WaveScript : MonoBehaviour
         //Wait for 2 seconds
     }
 
-
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -123,7 +116,6 @@ public class WaveScript : MonoBehaviour
             {
                 WaveRunning = false;
                 WaveEnemies.Clear();
-                CurrentRound++;
             }
 
         }
