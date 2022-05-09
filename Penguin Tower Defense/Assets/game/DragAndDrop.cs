@@ -10,7 +10,7 @@ public class DragAndDrop : MonoBehaviour
     [SerializeField][Range(1f, 3f)] float TowerFootprint = 2f;
     public bool isDragging = false;
     public bool SafeToPlace = false;
-
+    [SerializeField] public int towerCost = 50;
 
     private void Awake()
     {
@@ -76,7 +76,7 @@ public class DragAndDrop : MonoBehaviour
 
             //Debug.Log(SafeToPlace);
             GameObject g = GameObject.Find("Coins");
-            if (SafeToPlace == true && g.GetComponent<coins>().Coins >= 250)
+            if (SafeToPlace == true && g.GetComponent<coins>().Coins - towerCost >= 0)
             {
                 isDragging = false;
                 RangeView.SetActive(false);
