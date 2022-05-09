@@ -8,13 +8,11 @@ public class WaveScript : MonoBehaviour
 {
     int CurrentRound = 0;
     bool WaveRunning = false;
-
-    float timer = 0;
-
     Vector2 SpawnPos;
     List<GameObject> WaveEnemies = new List<GameObject>();
     List<int> Enemyint = new List<int>();
     string[] waves;
+
     //public GameObject Ship;
 
     private void Awake()
@@ -62,6 +60,7 @@ public class WaveScript : MonoBehaviour
             string[] tmp = waves[CurrentRound-1].Split(char.Parse(","));
 
             int roundLength = tmp.Length;
+            Enemyint.Clear();
 
             for (int i = 0; i < roundLength; i++)
             {
@@ -88,7 +87,6 @@ public class WaveScript : MonoBehaviour
             GameObject EnemyShip = Instantiate((GameObject)Resources.Load("Enemies/Ship"+Enemyint[i].ToString(), typeof(GameObject)), SpawnPos, Quaternion.identity);
 
             WaveEnemies.Add(EnemyShip);
-            timer += Time.deltaTime;
             yield return new WaitForSeconds(2);
         }
         //Wait for 2 seconds
