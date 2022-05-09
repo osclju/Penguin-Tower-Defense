@@ -12,5 +12,5 @@ public class bulletVar : MonoBehaviour
     public int affect;
     [SerializeField]
     [Range(0f, 10f)]
-    public float timeLeft;
+    public float maxDistance;
 }
