@@ -20,6 +20,8 @@ public class shoot : MonoBehaviour
     private float b_speed;
     private float b_timeBetweenShoots;
     private float b_range;
+    private float distance;
+    private Vector2 startPosition;
     private bool shootingStopped = false;
 
     // time
@@ -48,7 +50,7 @@ public class shoot : MonoBehaviour
         //hämtar alla variabler från bullet
         b_speed = objPrefab.GetComponent<bulletVar>().speed;
         b_timeBetweenShoots = objPrefab.GetComponent<bulletVar>().timeBetweenShots;
-        b_range = objPrefab.GetComponent<bulletVar>().timeLeft / 2;
+        b_range = objPrefab.GetComponent<bulletVar>().maxDistance;
        
         if (b_timeBetweenShoots < 1)
         {
@@ -69,6 +71,14 @@ public class shoot : MonoBehaviour
         }
         */
 
+
+        // gör en ntt nytt script med bullet i alla bullets
+        //distance = Vector2.Distance(transform.position, startPosition);
+        //if(distance > b_range)
+        //{
+        //    DisableObject();
+        //}
+
         // För testing, kan ta bort detta sen när det fungerar
         if (Input.GetKeyDown("space"))
         {
@@ -80,9 +90,13 @@ public class shoot : MonoBehaviour
             stopShooting();
         }
     }
-
+    private void DisableObject() {
+        //pew.velocity = Vector2.zero;
+        gameObject.SetActive(false);
+    }
     public void startShooting() {
         shootingStopped = false;
+        startPosition = fp.position;
         shooting();
         StartCoroutine(Countdown());
     }
@@ -119,18 +133,14 @@ public class shoot : MonoBehaviour
         pos = fp.position;
         angle = fp.transform.eulerAngles;
         angle += new Vector3(0, 0, 90);
-        // skapar en klon av bullet prefab som skjuts iväg
-        /*
-        clone = Instantiate(bulletPrefab, pos, Quaternion.Euler(angle));
-        */
         // ger en relativ force rakt uppåt, så det hållet som vapnet pekar
-
-        GameObject poolClone = bulletPool.PullGameObject(pos);
+        GameObject poolClone = bulletPool.PullGameObject(pos, Quaternion.Euler(angle));
         pew = poolClone.GetComponent<Rigidbody2D>();
-        pew.transform.rotation = Quaternion.Euler(angle);
-        pew.AddRelativeForce(new Vector2(0, b_speed), ForceMode2D.Force);
-
-        pew.AddForceAtPosition()
+        pew.velocity = Vector3.zero;
+        pew.velocity = transform.right * b_speed * 0.1f;
+        
+        //pew.transform.rotation = Quaternion.Euler(angle);
+        //pew.AddRelativeForce(new Vector2(b_speed,0), ForceMode2D.Force);
     }
     // special effect 
 
