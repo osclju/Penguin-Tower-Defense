@@ -693,7 +693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &165938029
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1926,7 +1926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85d574956d964f4e866fece9c1d2189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Upgrade_Window: {fileID: 1831102291}
+  Font_window: {fileID: 0}
   Turret_pictures_down:
   - {fileID: 21300000, guid: f53ecf27015997b4e8833d2fcbda91bd, type: 3}
   - {fileID: 21300000, guid: 36aea8a0620d4a44ab7538a91da34884, type: 3}
@@ -1955,6 +1955,7 @@ MonoBehaviour:
   - {fileID: 1649431494}
   - {fileID: 638719969}
   ResourcesMain: {fileID: 96367193}
+  UpgradeMain: {fileID: 1672213595}
 --- !u!1 &638719967
 GameObject:
   m_ObjectHideFlags: 0
@@ -3257,7 +3258,7 @@ GameObject:
   - component: {fileID: 978439232}
   - component: {fileID: 978439231}
   m_Layer: 5
-  m_Name: Upgrade (1)
+  m_Name: Delete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

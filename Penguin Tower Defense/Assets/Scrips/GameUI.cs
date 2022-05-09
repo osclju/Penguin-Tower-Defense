@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
-    [SerializeField] Image Upgrade_Window;
+    [SerializeField] Image Font_window;
     [SerializeField] Sprite[] Turret_pictures_down;
     [SerializeField] Sprite[] Turret_pictures_front;
     [SerializeField] Image[] Turret_objects;
     [SerializeField] GameObject ResourcesMain;
+    [SerializeField] GameObject UpgradeMain;
     static bool Visable = false;
 
     private void Awake()
@@ -23,8 +24,10 @@ public class GameUI : MonoBehaviour
 
     public void upgrade(int pressed)
     {
-        Upgrade_Window.sprite = Turret_pictures_front[pressed];
+        Font_window.sprite = Turret_pictures_front[pressed];
     }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -38,6 +41,17 @@ public class GameUI : MonoBehaviour
         else
         {
             ResourcesMain.SetActive(true);
+        }
+    }
+    public void ToggleUpgradeWindow()
+    {
+        if (UpgradeMain.activeSelf)
+        {
+            UpgradeMain.SetActive(false);
+        }
+        else
+        {
+            UpgradeMain.SetActive(true);
         }
     }
 }
