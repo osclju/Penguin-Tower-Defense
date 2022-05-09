@@ -29,8 +29,6 @@ public class shoot : MonoBehaviour
     private static MyObjectPool<PoolObject> bulletPool;
     [SerializeField] private GameObject objPrefab;
     
-    
-    
     // pooling
     /*
     [SerializeField]
@@ -127,11 +125,12 @@ public class shoot : MonoBehaviour
         */
         // ger en relativ force rakt uppåt, så det hållet som vapnet pekar
 
-        GameObject poolClone = bulletPool.PullGameObject(pos, Quaternion.Euler(angle));
+        GameObject poolClone = bulletPool.PullGameObject(pos);
         pew = poolClone.GetComponent<Rigidbody2D>();
+        pew.transform.rotation = Quaternion.Euler(angle);
+        pew.AddRelativeForce(new Vector2(0, b_speed), ForceMode2D.Force);
 
-        pew.AddRelativeForce(new Vector3(0, -b_speed), ForceMode2D.Force);
-       
+        pew.AddForceAtPosition()
     }
     // special effect 
 
