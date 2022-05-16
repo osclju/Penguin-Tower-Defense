@@ -7,9 +7,6 @@ public class shoot : MonoBehaviour
 {    
     // skjuta prefabsen
     private Transform fp; 
-    //[SerializeField]  
-    //private GameObject bulletPrefab;
-    //private GameObject clone;
     private Rigidbody2D pew;
 
     // punkt att skjutas ifr�n
@@ -22,6 +19,7 @@ public class shoot : MonoBehaviour
     private float b_range;
     private float distance;
     private Vector2 startPosition;
+    private Vector2 travelPosition;
     private bool shootingStopped = false;
 
     // time
@@ -30,16 +28,10 @@ public class shoot : MonoBehaviour
     // pooling
     private static MyObjectPool<PoolObject> bulletPool;
     [SerializeField] private GameObject objPrefab;
-    
-    // pooling
-    /*
-    [SerializeField]
-    private float timeToSpawn = 5f;
-    private float timeSinceSpawn;
-    private objectPool objectPool;
-    [SerializeField]
-    private GameObject prefab;
-    */
+
+    //privat lagring av bullets
+    List<GameObject> bullets = new List<GameObject>();
+
     private void Awake()
     {
         bulletPool = new MyObjectPool<PoolObject>(objPrefab, 2);
@@ -56,29 +48,12 @@ public class shoot : MonoBehaviour
         {
             timeChange = 0.1f;
         }
-        // pooling
-        //objectPool = FindObjectOfType<objectPool>();
     }
     private void Update()
     {
-        // pooling
-        /*
-        timeSinceSpawn += Time.deltaTime;
-        if (timeSinceSpawn >= timeToSpawn) {
-            GameObject clone = objectPool.GetObject(prefab);
-            clone.transform.position = this.transform.position;
-            timeSinceSpawn = 0f;
-        }
-        */
-
-
-        // g�r en ntt nytt script med bullet i alla bullets
-        //distance = Vector2.Distance(transform.position, startPosition);
-        //if(distance > b_range)
-        //{
-        //    DisableObject();
-        //}
-
+        travelPosition = pew.transform.position;
+        Debug.Log("position: " + travelPosition);
+        calculateDistance();
         // F�r testing, kan ta bort detta sen n�r det fungerar
         if (Input.GetKeyDown("space"))
         {
@@ -91,14 +66,19 @@ public class shoot : MonoBehaviour
         }
     }
     private void DisableObject() {
-        //pew.velocity = Vector2.zero;
         gameObject.SetActive(false);
     }
     public void startShooting() {
         shootingStopped = false;
         startPosition = fp.position;
-        shooting();
+        //shooting();
         StartCoroutine(Countdown());
+    }
+    private void calculateDistance() {
+
+        if (Vector2.Distance(startPosition, travelPosition) > b_range) {
+            DisableObject();
+        }
     }
     public void stopShooting()
     {
@@ -107,9 +87,8 @@ public class shoot : MonoBehaviour
     private IEnumerator Countdown()
     {
         // add arrays 
-        float duration = b_timeBetweenShoots; // 3 seconds you can change this 
-                                     //to whatever you want
-
+        float duration = b_timeBetweenShoots; 
+        shooting();
         while (duration > 0f)
         {
             if (shootingStopped){
@@ -121,7 +100,6 @@ public class shoot : MonoBehaviour
 
             duration -= timeChange;
         }
-        shooting();
         StartCoroutine(Countdown());
     }
 
@@ -133,12 +111,13 @@ public class shoot : MonoBehaviour
         pos = fp.position;
         angle = fp.transform.eulerAngles;
         angle += new Vector3(0, 0, 90);
-        // ger en relativ force rakt upp�t, s� det h�llet som vapnet pekar
+        // hämtar en kula från poolen
         GameObject poolClone = bulletPool.PullGameObject(pos, Quaternion.Euler(angle));
         pew = poolClone.GetComponent<Rigidbody2D>();
         pew.velocity = Vector3.zero;
         pew.velocity = transform.right * b_speed * 0.1f;
-        
+
+        bullets.Add(poolClone); // dont know what to do with this
         //pew.transform.rotation = Quaternion.Euler(angle);
         //pew.AddRelativeForce(new Vector2(b_speed,0), ForceMode2D.Force);
     }
