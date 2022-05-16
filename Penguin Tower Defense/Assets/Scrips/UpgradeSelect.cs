@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class UpgradeSelect : MonoBehaviour
 {
-    static private int NumberOfType = 1;
-    private int TowerID;
-
+    private GameObject Tower;
     // Start is called before the first frame update
     public void OnMouseDown()
     {
-        Debug.Log("Pressed");
-        FindObjectOfType<GameUI>().ToggleUpgradeWindow();
+
+        Debug.Log("Pressed ID: "+ this.gameObject.transform.name);
+        
         foreach (Transform eachChild in transform)
         {
             if (eachChild.name == "RangeVisual")
             {
                 if (eachChild.gameObject.activeSelf) {
+                    FindObjectOfType<GameUI>().SetUpgradeWindow(false);
                     eachChild.gameObject.SetActive(false);
                 }
                 else
                 {
+                    FindObjectOfType<GameUI>().setTower(this.gameObject);
+                    FindObjectOfType<GameUI>().SetUpgradeWindow(true);
                     eachChild.gameObject.SetActive(true);
                 }
             }
@@ -28,14 +30,15 @@ public class UpgradeSelect : MonoBehaviour
     }
 
     public void DeleteTower() {
+        Debug.Log("Deleted ID:" + this.gameObject.transform.name);
         GameObject.Destroy(this.gameObject);
     }
 
-    public void SetTowerID(int id) {
-        TowerID = id;
+    public void SetTower(GameObject tower) {
+        Tower = tower;
     }
-    public int GetTowerID()
+    public Transform GetTower()
     {
-        return(TowerID);
+        return(this.transform);
     }
 }

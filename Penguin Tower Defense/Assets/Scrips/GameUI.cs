@@ -11,7 +11,8 @@ public class GameUI : MonoBehaviour
     [SerializeField] Image[] Turret_objects;
     [SerializeField] GameObject ResourcesMain;
     [SerializeField] GameObject UpgradeMain;
-    static bool Visable = false;
+    GameObject Tower;
+    GameObject oldTower;
 
     private void Awake()
     {
@@ -27,6 +28,35 @@ public class GameUI : MonoBehaviour
         Font_window.sprite = Turret_pictures_front[pressed];
     }
 
+    public void delete() {
+        UpgradeSelect[] Towers = FindObjectsOfType<UpgradeSelect>();
+        foreach (UpgradeSelect tower in Towers) {
+            if (tower.GetTower().name == Tower.transform.name) {
+                tower.DeleteTower();
+                SetUpgradeWindow(false);
+                break;
+            }
+        }
+    }
+
+    public void setTower(GameObject tower) {
+        if (oldTower == null){
+            oldTower = tower;
+        }
+        else {
+            if (oldTower != tower) {
+                foreach (Transform eachChild in oldTower.transform)
+                {
+                    if (eachChild.name == "RangeVisual")
+                    {
+                        eachChild.gameObject.SetActive(false);
+                    }
+                }
+            }
+        }
+        oldTower = tower;
+        Tower = tower;
+    }   
 
     // Update is called once per frame
     void Update()
@@ -52,6 +82,18 @@ public class GameUI : MonoBehaviour
         else
         {
             UpgradeMain.SetActive(true);
+        }
+    }
+
+    public void SetUpgradeWindow(bool on)
+    {
+        if (on)
+        {
+            UpgradeMain.SetActive(true);
+        }
+        else
+        {
+            UpgradeMain.SetActive(false);
         }
     }
 }
