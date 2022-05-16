@@ -12,7 +12,13 @@ public class shoot : MonoBehaviour
     //private GameObject clone;
     private Rigidbody2D pew;
 
+<<<<<<< HEAD:Penguin Tower Defense/Assets/game/shooting/scripts/shoot.cs
+    private objectPool pool;
+
     // punkt att skjutas ifrï¿½n
+=======
+    // punkt att skjutas ifrån
+>>>>>>> nujÃ¤vlar:Penguin Tower Defense/Assets/game/shooting/scripts/new pooling/shoot.cs
     private Vector3 pos;
     private Vector3 angle;
 
@@ -20,25 +26,44 @@ public class shoot : MonoBehaviour
     private float b_speed;
     private float b_timeBetweenShoots;
     private float b_range;
+<<<<<<< HEAD:Penguin Tower Defense/Assets/game/shooting/scripts/shoot.cs
+=======
     private float distance;
     private Vector2 startPosition;
+>>>>>>> nujÃ¤vlar:Penguin Tower Defense/Assets/game/shooting/scripts/new pooling/shoot.cs
     private bool shootingStopped = false;
 
     // time
     private float timeChange = 1;
 
+<<<<<<< HEAD:Penguin Tower Defense/Assets/game/shooting/scripts/shoot.cs
+
+
+    // pooling
+=======
     // pooling
     private static MyObjectPool<PoolObject> bulletPool;
     [SerializeField] private GameObject objPrefab;
     
     // pooling
     /*
+>>>>>>> nujÃ¤vlar:Penguin Tower Defense/Assets/game/shooting/scripts/new pooling/shoot.cs
     [SerializeField]
     private float timeToSpawn = 5f;
     private float timeSinceSpawn;
     private objectPool objectPool;
     [SerializeField]
     private GameObject prefab;
+<<<<<<< HEAD:Penguin Tower Defense/Assets/game/shooting/scripts/shoot.cs
+
+    void Start()
+    {
+        fp = transform.Find("firePoint");
+        //hï¿½mtar alla variabler frï¿½n bullet
+        b_speed = bulletPrefab.GetComponent<bulletVar>().speed;
+        b_timeBetweenShoots = bulletPrefab.GetComponent<bulletVar>().timeBetweenShots;
+        b_range = bulletPrefab.GetComponent<bulletVar>().timeLeft / 2;
+=======
     */
     private void Awake()
     {
@@ -47,39 +72,53 @@ public class shoot : MonoBehaviour
     void Start()
     {
         fp = transform.Find("firePoint");
-        //hï¿½mtar alla variabler frï¿½n bullet
+        //hämtar alla variabler från bullet
         b_speed = objPrefab.GetComponent<bulletVar>().speed;
         b_timeBetweenShoots = objPrefab.GetComponent<bulletVar>().timeBetweenShots;
         b_range = objPrefab.GetComponent<bulletVar>().maxDistance;
+>>>>>>> nujÃ¤vlar:Penguin Tower Defense/Assets/game/shooting/scripts/new pooling/shoot.cs
        
         if (b_timeBetweenShoots < 1)
         {
             timeChange = 0.1f;
         }
         // pooling
+<<<<<<< HEAD:Penguin Tower Defense/Assets/game/shooting/scripts/shoot.cs
+        objectPool = FindObjectOfType<objectPool>();
+=======
         //objectPool = FindObjectOfType<objectPool>();
+>>>>>>> nujÃ¤vlar:Penguin Tower Defense/Assets/game/shooting/scripts/new pooling/shoot.cs
     }
     private void Update()
     {
         // pooling
+<<<<<<< HEAD:Penguin Tower Defense/Assets/game/shooting/scripts/shoot.cs
+=======
         /*
+>>>>>>> nujÃ¤vlar:Penguin Tower Defense/Assets/game/shooting/scripts/new pooling/shoot.cs
         timeSinceSpawn += Time.deltaTime;
         if (timeSinceSpawn >= timeToSpawn) {
             GameObject clone = objectPool.GetObject(prefab);
             clone.transform.position = this.transform.position;
             timeSinceSpawn = 0f;
         }
+<<<<<<< HEAD:Penguin Tower Defense/Assets/game/shooting/scripts/shoot.cs
+
+
+        // Fï¿½r testing, kan ta bort detta sen nï¿½r det fungerar
+=======
         */
 
 
-        // gï¿½r en ntt nytt script med bullet i alla bullets
+        // gör en ntt nytt script med bullet i alla bullets
         //distance = Vector2.Distance(transform.position, startPosition);
         //if(distance > b_range)
         //{
         //    DisableObject();
         //}
 
-        // Fï¿½r testing, kan ta bort detta sen nï¿½r det fungerar
+        // För testing, kan ta bort detta sen när det fungerar
+>>>>>>> nujÃ¤vlar:Penguin Tower Defense/Assets/game/shooting/scripts/new pooling/shoot.cs
         if (Input.GetKeyDown("space"))
         {
             startShooting();
@@ -96,7 +135,10 @@ public class shoot : MonoBehaviour
     }
     public void startShooting() {
         shootingStopped = false;
+<<<<<<< HEAD:Penguin Tower Defense/Assets/game/shooting/scripts/shoot.cs
+=======
         startPosition = fp.position;
+>>>>>>> nujÃ¤vlar:Penguin Tower Defense/Assets/game/shooting/scripts/new pooling/shoot.cs
         shooting();
         StartCoroutine(Countdown());
     }
@@ -126,14 +168,34 @@ public class shoot : MonoBehaviour
     }
 
     public void shooting() {
-        
-        /* Detta borde fungera */ 
-       
+<<<<<<< HEAD:Penguin Tower Defense/Assets/game/shooting/scripts/shoot.cs
         // rï¿½knar ur posiiton och rikting dï¿½r projectilen ska skjutas 
         pos = fp.position;
         angle = fp.transform.eulerAngles;
         angle += new Vector3(0, 0, 90);
+        // skapar en klon av bullet prefab som skjuts ivï¿½g
+        clone = Instantiate(bulletPrefab, pos, Quaternion.Euler(angle));
+        pew = clone.GetComponent<Rigidbody2D>();
         // ger en relativ force rakt uppï¿½t, sï¿½ det hï¿½llet som vapnet pekar
+        
+
+
+        
+        
+        pew.AddRelativeForce(new Vector3(0, -b_speed), ForceMode2D.Force);
+        Destroy(clone, 2f);
+        spriteAnimation a = gameObject.GetComponentInParent<spriteAnimation>();
+        a.enabled = true;
+
+=======
+        
+        /* Detta borde fungera */ 
+       
+        // räknar ur posiiton och rikting där projectilen ska skjutas 
+        pos = fp.position;
+        angle = fp.transform.eulerAngles;
+        angle += new Vector3(0, 0, 90);
+        // ger en relativ force rakt uppåt, så det hållet som vapnet pekar
         GameObject poolClone = bulletPool.PullGameObject(pos, Quaternion.Euler(angle));
         pew = poolClone.GetComponent<Rigidbody2D>();
         pew.velocity = Vector3.zero;
@@ -141,6 +203,7 @@ public class shoot : MonoBehaviour
         
         //pew.transform.rotation = Quaternion.Euler(angle);
         //pew.AddRelativeForce(new Vector2(b_speed,0), ForceMode2D.Force);
+>>>>>>> nujÃ¤vlar:Penguin Tower Defense/Assets/game/shooting/scripts/new pooling/shoot.cs
     }
     // special effect 
 

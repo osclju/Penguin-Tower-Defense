@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3366e307293544da0fab09b45919e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 408921267155858384, guid: cb2279478634965439e74fe32ef5b2ac, type: 3}
+  bulletPrefab: {fileID: 8750661577041742260, guid: 6c5549fc043d2f344b6765688d2a2ef9, type: 3}
+  objPrefab: {fileID: 8750661577041742260, guid: 6c5549fc043d2f344b6765688d2a2ef9, type: 3}
   targetFirst: 1
   Range: 6
   spin: 1
@@ -279,7 +280,7 @@ PrefabInstance:
     - target: {fileID: 2330691807898818117, guid: f0e6585b8c49b2340b122ec808762065, type: 3}
       propertyPath: bulletPrefab
       value: 
-      objectReference: {fileID: 408921267155858384, guid: cb2279478634965439e74fe32ef5b2ac, type: 3}
+      objectReference: {fileID: 8750661577041742260, guid: 6c5549fc043d2f344b6765688d2a2ef9, type: 3}
     - target: {fileID: 2609401733152115914, guid: f0e6585b8c49b2340b122ec808762065, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.39

@@ -1,68 +1,85 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using OWS.ObjectPooling;
 
 public class shoot : MonoBehaviour
 {    
     // skjuta prefabsen
     private Transform fp; 
-    [SerializeField]  
-    private GameObject bulletPrefab;
-    private GameObject clone;
+    //[SerializeField]  
+    //private GameObject bulletPrefab;
+    //private GameObject clone;
     private Rigidbody2D pew;
 
-    private objectPool pool;
-
-    // punkt att skjutas ifrï¿½n
+    // punkt att skjutas ifrån
     private Vector3 pos;
     private Vector3 angle;
 
-    // variabler frï¿½n bullets
+    // variabler från bullets
     private float b_speed;
     private float b_timeBetweenShoots;
     private float b_range;
+    private float distance;
+    private Vector2 startPosition;
     private bool shootingStopped = false;
 
     // time
     private float timeChange = 1;
 
-
-
     // pooling
+    private static MyObjectPool<PoolObject> bulletPool;
+    [SerializeField] private GameObject objPrefab;
+    
+    // pooling
+    /*
     [SerializeField]
     private float timeToSpawn = 5f;
     private float timeSinceSpawn;
     private objectPool objectPool;
     [SerializeField]
     private GameObject prefab;
-
+    */
+    private void Awake()
+    {
+        bulletPool = new MyObjectPool<PoolObject>(objPrefab, 2);
+    }
     void Start()
     {
         fp = transform.Find("firePoint");
-        //hï¿½mtar alla variabler frï¿½n bullet
-        b_speed = bulletPrefab.GetComponent<bulletVar>().speed;
-        b_timeBetweenShoots = bulletPrefab.GetComponent<bulletVar>().timeBetweenShots;
-        b_range = bulletPrefab.GetComponent<bulletVar>().timeLeft / 2;
+        //hämtar alla variabler från bullet
+        b_speed = objPrefab.GetComponent<bulletVar>().speed;
+        b_timeBetweenShoots = objPrefab.GetComponent<bulletVar>().timeBetweenShots;
+        b_range = objPrefab.GetComponent<bulletVar>().maxDistance;
        
         if (b_timeBetweenShoots < 1)
         {
             timeChange = 0.1f;
         }
         // pooling
-        objectPool = FindObjectOfType<objectPool>();
+        //objectPool = FindObjectOfType<objectPool>();
     }
     private void Update()
     {
         // pooling
+        /*
         timeSinceSpawn += Time.deltaTime;
         if (timeSinceSpawn >= timeToSpawn) {
             GameObject clone = objectPool.GetObject(prefab);
             clone.transform.position = this.transform.position;
             timeSinceSpawn = 0f;
         }
+        */
 
 
-        // Fï¿½r testing, kan ta bort detta sen nï¿½r det fungerar
+        // gör en ntt nytt script med bullet i alla bullets
+        //distance = Vector2.Distance(transform.position, startPosition);
+        //if(distance > b_range)
+        //{
+        //    DisableObject();
+        //}
+
+        // För testing, kan ta bort detta sen när det fungerar
         if (Input.GetKeyDown("space"))
         {
             startShooting();
@@ -73,9 +90,13 @@ public class shoot : MonoBehaviour
             stopShooting();
         }
     }
-
+    private void DisableObject() {
+        //pew.velocity = Vector2.zero;
+        gameObject.SetActive(false);
+    }
     public void startShooting() {
         shootingStopped = false;
+        startPosition = fp.position;
         shooting();
         StartCoroutine(Countdown());
     }
@@ -105,28 +126,25 @@ public class shoot : MonoBehaviour
     }
 
     public void shooting() {
-        // rï¿½knar ur posiiton och rikting dï¿½r projectilen ska skjutas 
+        
+        /* Detta borde fungera */ 
+       
+        // räknar ur posiiton och rikting där projectilen ska skjutas 
         pos = fp.position;
         angle = fp.transform.eulerAngles;
         angle += new Vector3(0, 0, 90);
-        // skapar en klon av bullet prefab som skjuts ivï¿½g
-        clone = Instantiate(bulletPrefab, pos, Quaternion.Euler(angle));
-        pew = clone.GetComponent<Rigidbody2D>();
-        // ger en relativ force rakt uppï¿½t, sï¿½ det hï¿½llet som vapnet pekar
+        // ger en relativ force rakt uppåt, så det hållet som vapnet pekar
+        GameObject poolClone = bulletPool.PullGameObject(pos, Quaternion.Euler(angle));
+        pew = poolClone.GetComponent<Rigidbody2D>();
+        pew.velocity = Vector3.zero;
+        pew.velocity = transform.right * b_speed * 0.1f;
         
-
-
-        
-        
-        pew.AddRelativeForce(new Vector3(0, -b_speed), ForceMode2D.Force);
-        Destroy(clone, 2f);
-        spriteAnimation a = gameObject.GetComponentInParent<spriteAnimation>();
-        a.enabled = true;
-
+        //pew.transform.rotation = Quaternion.Euler(angle);
+        //pew.AddRelativeForce(new Vector2(b_speed,0), ForceMode2D.Force);
     }
     // special effect 
 
-    // i enemie titta vad det ï¿½r fï¿½r effect pï¿½ den kulan, om det ï¿½r samma effekt som fienden gï¿½r detta
+    // i enemie titta vad det är fär effect på den kulan, om det är samma effekt som fienden gör detta
     // if(effekt == myEffekt){
     //  Do nothing 
     // or do all
