@@ -351,7 +351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3366e307293544da0fab09b45919e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 408921267155858384, guid: cb2279478634965439e74fe32ef5b2ac, type: 3}
   objPrefab: {fileID: 408921267155858384, guid: cb2279478634965439e74fe32ef5b2ac, type: 3}
   targetFirst: 1
   Range: 6
@@ -684,7 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531778f9e13eb6544b589ad2ee15ed7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8750661577041742260, guid: 6c5549fc043d2f344b6765688d2a2ef9, type: 3}
+  objPrefab: {fileID: 408921267155858384, guid: cb2279478634965439e74fe32ef5b2ac, type: 3}
 --- !u!1 &8674598481791087577
 GameObject:
   m_ObjectHideFlags: 0

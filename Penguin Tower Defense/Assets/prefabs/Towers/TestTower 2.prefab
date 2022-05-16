@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3366e307293544da0fab09b45919e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8750661577041742260, guid: 6c5549fc043d2f344b6765688d2a2ef9, type: 3}
   objPrefab: {fileID: 8750661577041742260, guid: 6c5549fc043d2f344b6765688d2a2ef9, type: 3}
   targetFirst: 1
   Range: 6
@@ -123,6 +122,7 @@ MonoBehaviour:
   TowerFootprint: 1
   isDragging: 0
   SafeToPlace: 0
+  towerCost: 50
 --- !u!61 &7494126048701574596
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -277,6 +277,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2330691807898818117, guid: f0e6585b8c49b2340b122ec808762065, type: 3}
+      propertyPath: objPrefab
+      value: 
+      objectReference: {fileID: 8750661577041742260, guid: 6c5549fc043d2f344b6765688d2a2ef9, type: 3}
     - target: {fileID: 2330691807898818117, guid: f0e6585b8c49b2340b122ec808762065, type: 3}
       propertyPath: bulletPrefab
       value: 
