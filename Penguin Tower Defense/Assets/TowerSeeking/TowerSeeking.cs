@@ -24,10 +24,14 @@ public class TowerSeeking : shoot
 
 
         LayerMask pirates = LayerMask.GetMask("pirates");
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, Range, pirates);
-        
+        Debug.Log(colliders);
+
+
         if (colliders.Length > 0)
         {
+
             hasFound = true;
 
             float howFar = colliders[0].GetComponent<FollowPath>().HowFarIn;
@@ -47,6 +51,7 @@ public class TowerSeeking : shoot
                 //Sen roterar vi tornet i Z leden eftersom det �r s� man f�r till tv� dimensioell rotation.
                 transform.rotation = Quaternion.Euler(0, 0, lookAtAngle); 
             }
+
 
             if (oneShoot == false) {
                 gun.GetComponent<shoot>().startShooting();
