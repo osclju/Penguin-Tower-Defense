@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3429207574645592197}
   - component: {fileID: 6354478452761179252}
   - component: {fileID: 4401775827885884173}
+  - component: {fileID: 3563361690189597575}
   m_Layer: 8
   m_Name: Ship2
   m_TagString: pirate
@@ -315,3 +316,18 @@ PolygonCollider2D:
       - {x: 1.53, y: 1.8499999}
       - {x: 1.52, y: 1.88}
       - {x: 1.49, y: 1.88}
+--- !u!114 &3563361690189597575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931701158260253030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56449890ae03aa4090ea2a4ccad188e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  immunity: 0
+  superEffective: 0

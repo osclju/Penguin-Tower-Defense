@@ -51,9 +51,9 @@ public class shoot : MonoBehaviour
     }
     private void Update()
     {
-        travelPosition = pew.transform.position;
-        Debug.Log("position: " + travelPosition);
-        calculateDistance();
+        //travelPosition = pew.transform.position;
+        //Debug.Log("position: " + travelPosition);
+        //calculateDistance();
         // F�r testing, kan ta bort detta sen n�r det fungerar
         if (Input.GetKeyDown("space"))
         {
