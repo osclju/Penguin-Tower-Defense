@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 626378806640717541}
   - component: {fileID: 9153568812476877332}
   - component: {fileID: 6511335464818472943}
+  - component: {fileID: 6366685669087140505}
   m_Layer: 8
   m_Name: Ship5
   m_TagString: pirate
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b9687fea5fc4a5a458f358e4aa322379, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b59a8b4ce56c2f449ad39696106e936, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -363,3 +364,18 @@ PolygonCollider2D:
       - {x: 1.0849999, y: 2.6399999}
       - {x: 1.0749999, y: 2.6699998}
       - {x: 1.045, y: 2.6699998}
+--- !u!114 &6366685669087140505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3155254697923665670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56449890ae03aa4090ea2a4ccad188e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 600
+  immunity: 0
+  superEffective: 0
