@@ -24,12 +24,15 @@ public class TowerSeeking : shoot
 
 
         LayerMask pirates = LayerMask.GetMask("pirates");
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, Range, pirates);
-        
+        Debug.Log(colliders);
+
+
         if (colliders.Length > 0)
         {
-            hasFound = true;
 
+            hasFound = true;
 
             float howFar = colliders[0].GetComponent<FollowPath>().HowFarIn;
             // h�r kollar vi vilken av skeppen som har kommit l�ngst p� banan beroende p� en float som ligger i followath sripten
@@ -43,6 +46,7 @@ public class TowerSeeking : shoot
             //startShooting();
             // R�knar ut vikeln mellan tv� positioner allts� skeppets XY position och tornets XY position.
             // I samma veva omvandlar vi radianerna till vanliga grader med "(180 / Mathf.PI) *".
+
             float lookAtAngle = (180 / Mathf.PI) * Mathf.Atan2(colliders[which2target].transform.position.y - transform.position.y, colliders[which2target].transform.position.x - transform.position.x);
             //Sen roterar vi tornet i Z leden eftersom det �r s� man f�r till tv� dimensioell rotation.
             transform.rotation = Quaternion.Euler(0, 0, lookAtAngle);
