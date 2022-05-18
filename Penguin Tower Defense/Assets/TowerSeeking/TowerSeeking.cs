@@ -26,7 +26,7 @@ public class TowerSeeking : shoot
         LayerMask pirates = LayerMask.GetMask("pirates");
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, Range, pirates);
-        Debug.Log(colliders);
+        //Debug.Log(colliders);
 
 
         if (colliders.Length > 0)
