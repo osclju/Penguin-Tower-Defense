@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c897b695d84514439c445416a89a86f, type: 3}
-  m_Name: EasyEnemyStats
+  m_Name: BaseEnemyStats
   m_EditorClassIdentifier: 
-  hp: 100
-  dmg: 10
+  hp: 0
+  dmg: 0
   speed: 0
