@@ -104,9 +104,10 @@ public class shoot : MonoBehaviour
     }
 
     public void shooting() {
-        
-        /* Detta borde fungera */ 
-       
+
+        /* Detta borde fungera */
+        spriteAnimation animation = gameObject.GetComponentInParent<spriteAnimation>();
+        animation.enabled = true;
         // r�knar ur posiiton och rikting d�r projectilen ska skjutas 
         pos = fp.position;
         angle = fp.transform.eulerAngles;
