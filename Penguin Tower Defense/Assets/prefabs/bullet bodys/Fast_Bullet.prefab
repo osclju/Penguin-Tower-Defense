@@ -48,11 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea74c9f2352f9b54bab443c90d140441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1500
+  speed: 750
   dmg: 2
   timeBetweenShots: 0.18
   affect: 2
-  timeLeft: 5
+  maxDistance: 0
 --- !u!114 &-4770795299684242579
 MonoBehaviour:
   m_ObjectHideFlags: 0

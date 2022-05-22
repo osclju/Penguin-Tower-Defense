@@ -51,9 +51,9 @@ public class shoot : MonoBehaviour
     }
     private void Update()
     {
-        travelPosition = pew.transform.position;
-        Debug.Log("position: " + travelPosition);
-        calculateDistance();
+        //travelPosition = pew.transform.position;
+        //Debug.Log("position: " + travelPosition);
+        //calculateDistance();
         // F�r testing, kan ta bort detta sen n�r det fungerar
         if (Input.GetKeyDown("space"))
         {
@@ -104,9 +104,10 @@ public class shoot : MonoBehaviour
     }
 
     public void shooting() {
-        
-        /* Detta borde fungera */ 
-       
+
+        /* Detta borde fungera */
+        spriteAnimation animation = gameObject.GetComponentInParent<spriteAnimation>();
+        animation.enabled = true;
         // r�knar ur posiiton och rikting d�r projectilen ska skjutas 
         pos = fp.position;
         angle = fp.transform.eulerAngles;

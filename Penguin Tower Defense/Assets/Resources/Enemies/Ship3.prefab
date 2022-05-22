@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5302213991778284355}
   - component: {fileID: 4480067787463366578}
   - component: {fileID: 4101084772728868798}
+  - component: {fileID: 4480791966894478287}
   m_Layer: 8
   m_Name: Ship3
   m_TagString: pirate
@@ -75,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c2e9f08b86cd7f140a5854eef69c92c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c40c453c82183ec4b8f576c3d0d666d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -144,7 +145,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 10, y: 10}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 10, y: 10}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -313,3 +314,18 @@ PolygonCollider2D:
       - {x: 1.9599999, y: 0.099999994}
       - {x: 1.91, y: 0.099999994}
       - {x: 1.9, y: 0.11}
+--- !u!114 &4480791966894478287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7705044141926023840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56449890ae03aa4090ea2a4ccad188e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 200
+  immunity: 0
+  superEffective: 0
