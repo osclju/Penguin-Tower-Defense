@@ -4845,7 +4845,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 04d6f9ef8d62a534cbf844bd5a0bfb05, type: 3}
   - {fileID: 21300000, guid: ef2fabc2d0cdbcd41820cb502687ffd5, type: 3}
   - {fileID: 21300000, guid: a403499346c2c8845b3c27b9e30ff08d, type: 3}
-  - {fileID: 21300000, guid: a5e36cbe5cde6e247a9df18cfcc70377, type: 3}
   - {fileID: 21300000, guid: 04d6f9ef8d62a534cbf844bd5a0bfb05, type: 3}
   myIMGcomponent1: {fileID: 287761778}
   myIMGcomponent2: {fileID: 1520759971}
