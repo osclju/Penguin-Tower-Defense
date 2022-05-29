@@ -120,7 +120,7 @@ public class WaveScript : MonoBehaviour
                 WaveRunning = false;
                 WaveEnemies.Clear();
 
-                if (CurrentRound == waves.Length)
+                if (CurrentRound == waves.Length - 1)
                 {
                     victoryAchieved = true;
                     FindObjectOfType<LevelLoader>().LoadSelectedLevel(2); //Victory
