@@ -52,7 +52,7 @@ MonoBehaviour:
   dmg: 2
   timeBetweenShots: 0.18
   affect: 2
-  maxDistance: 0
+  maxDistance: 8.24
 --- !u!114 &-4770795299684242579
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -29,8 +29,6 @@ public class shoot : MonoBehaviour
     private static MyObjectPool<PoolObject> bulletPool;
     [SerializeField] private GameObject objPrefab;
 
-    //privat lagring av bullets
-    List<GameObject> bullets = new List<GameObject>();
 
     private void Awake()
     {
@@ -74,12 +72,6 @@ public class shoot : MonoBehaviour
         //shooting();
         StartCoroutine(Countdown());
     }
-    private void calculateDistance() {
-
-        if (Vector2.Distance(startPosition, travelPosition) > b_range) {
-            DisableObject();
-        }
-    }
     public void stopShooting()
     {
         shootingStopped = true;
@@ -88,7 +80,7 @@ public class shoot : MonoBehaviour
     {
         // add arrays 
         float duration = b_timeBetweenShoots; 
-        shooting();
+ 
         while (duration > 0f)
         {
             if (shootingStopped){
@@ -100,6 +92,7 @@ public class shoot : MonoBehaviour
 
             duration -= timeChange;
         }
+        shooting();
         StartCoroutine(Countdown());
     }
 
@@ -118,7 +111,7 @@ public class shoot : MonoBehaviour
         pew.velocity = Vector3.zero;
         pew.velocity = transform.right * b_speed * 0.1f;
 
-        bullets.Add(poolClone); // dont know what to do with this
+        //bullets.Add(poolClone); // dont know what to do with this
         //pew.transform.rotation = Quaternion.Euler(angle);
         //pew.AddRelativeForce(new Vector2(b_speed,0), ForceMode2D.Force);
     }

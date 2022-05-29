@@ -13,4 +13,20 @@ public class bulletVar : MonoBehaviour
     [SerializeField]
     [Range(0f, 10f)]
     public float maxDistance;
+
+    private Vector2 startCord;
+    private Vector2 currentCord;
+    private float diff;
+    private void Start()
+    {
+       startCord = gameObject.GetComponent<Rigidbody2D>().transform.position;
+    }
+    private void Update() {
+        currentCord = gameObject.GetComponent<Rigidbody2D>().transform.position;
+        diff = Vector2.Distance(startCord, currentCord);
+        if (diff > maxDistance) {
+            gameObject.SetActive(false);
+        }
+    }
+   
 }
