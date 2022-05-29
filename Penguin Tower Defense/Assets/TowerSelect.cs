@@ -32,6 +32,7 @@ public class TowerSelect : MonoBehaviour
         //lägger till scriptet för att ta bort toweret.
         Tower2Spawn.AddComponent<UpgradeSelect>();
         Tower2Spawn.GetComponent<UpgradeSelect>().SetTower(this.gameObject);
+        Tower2Spawn.GetComponent<UpgradeSelect>().TowerCost = Tower2Spawn.GetComponent<DragAndDrop>().towerCost;
         NumberOfType++;
     }
 }

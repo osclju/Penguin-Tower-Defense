@@ -5,6 +5,7 @@ using UnityEngine;
 public class UpgradeSelect : MonoBehaviour
 {
     private GameObject Tower;
+    public int TowerCost;
     // Start is called before the first frame update
     public void OnMouseDown()
     {
@@ -30,7 +31,12 @@ public class UpgradeSelect : MonoBehaviour
     }
 
     public void DeleteTower() {
+        double tmpTowerCost = TowerCost;
+        tmpTowerCost *= 0.8;
+        TowerCost = (int)tmpTowerCost;
+
         Debug.Log("Deleted ID:" + this.gameObject.transform.name);
+        GameObject.Find("Coins").GetComponent<coins>().Coins += TowerCost;
         GameObject.Destroy(this.gameObject);
     }
 
