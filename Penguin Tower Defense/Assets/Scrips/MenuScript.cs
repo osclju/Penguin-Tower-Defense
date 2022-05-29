@@ -24,7 +24,7 @@ public class MenuScript : MonoBehaviour
 
     void Awake()
     {
-        amountOfLevles = SceneManager.sceneCountInBuildSettings - 1;
+        amountOfLevles = SceneManager.sceneCountInBuildSettings - 3;
         Debug.Log("Levels: "+amountOfLevles);
         StartCoroutine(Waitfor(1f));
         levelloader = GameObject.FindObjectOfType<LevelLoader>();
