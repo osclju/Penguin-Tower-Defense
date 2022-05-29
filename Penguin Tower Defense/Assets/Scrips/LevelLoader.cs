@@ -16,18 +16,25 @@ public class LevelLoader : MonoBehaviour
         {
             for (int v = 0; v < objs.Length; v++)
             {
-                if (objs[i].ToString() == objs[v].ToString() && i != v)
+                if (objs[v] == null || objs[i] == null) {
+                    break;
+                }
+                else if (objs[i].ToString() == objs[v].ToString() && i != v)
                 {
                     Debug.Log("Deleted Duplicate of object:" + objs[v].ToString());
                     Destroy(objs[v]);
-                    
+                    objs[v] = null;
                     break;
                 }
             }
         }
         for (int i = 0; i < objs.Length; i++)
         {
-            DontDestroyOnLoad(objs[i]);
+            if (objs[i] != null)
+            {
+                DontDestroyOnLoad(objs[i]);
+            }
+           
         }
         //Hämtar totalla antalet scener
         AmountofLevels = SceneManager.sceneCountInBuildSettings;
