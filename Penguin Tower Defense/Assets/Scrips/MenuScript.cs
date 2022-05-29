@@ -203,4 +203,10 @@ public class MenuScript : MonoBehaviour
             myIMGcomponent3.sprite = Maps[amountOfLevles-1]; // [4]
         }
     }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
+    }
 }
