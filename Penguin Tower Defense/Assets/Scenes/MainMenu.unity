@@ -878,13 +878,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1324398435}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4845,7 +4845,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 04d6f9ef8d62a534cbf844bd5a0bfb05, type: 3}
   - {fileID: 21300000, guid: ef2fabc2d0cdbcd41820cb502687ffd5, type: 3}
   - {fileID: 21300000, guid: a403499346c2c8845b3c27b9e30ff08d, type: 3}
-  - {fileID: 21300000, guid: a5e36cbe5cde6e247a9df18cfcc70377, type: 3}
   - {fileID: 21300000, guid: 04d6f9ef8d62a534cbf844bd5a0bfb05, type: 3}
   myIMGcomponent1: {fileID: 287761778}
   myIMGcomponent2: {fileID: 1520759971}
@@ -5795,7 +5794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1608094748
 RectTransform:
   m_ObjectHideFlags: 0
