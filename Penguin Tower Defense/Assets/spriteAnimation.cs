@@ -37,7 +37,7 @@ public class spriteAnimation : MonoBehaviour
         {
             animationTimer++;
         }
-        Debug.Log(animationTimer);
+        //Debug.Log(animationTimer);
     }
 
 
